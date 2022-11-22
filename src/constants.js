@@ -5,4 +5,9 @@ export const screens = {
   PROFILE: 'profile',
   POST_DETAIL: 'post-detail',
   CREATE_POST: 'create-post',
+  SETTINGS: 'settings',
+  ME: 'me',
+  HOME: 'home',
+  DRAWER_ACCOUNT: 'drawer-account',
+  MAIN_TABS: 'main-tabs',
 };

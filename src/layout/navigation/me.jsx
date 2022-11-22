@@ -6,7 +6,7 @@ const MeStack = createNativeStackNavigator();
 
 export function Me() {
   return (
-    <MeStack.Navigator initialRouteName={screens.P}>
+    <MeStack.Navigator initialRouteName={screens.PROFILE}>
       <MeStack.Screen
         name={screens.PROFILE}
         component={Profile}

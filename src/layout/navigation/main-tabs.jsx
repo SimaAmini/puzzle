@@ -27,13 +27,11 @@ export function MainTabs() {
         tabBarIcon: ({ focused, color, size }) => {
           let iconName;
 
-          if (route.name === 'Home') {
+          if (route.name === screens.HOME) {
             iconName = focused ? 'home' : 'home';
-          } else if (route.name === 'create-post') {
+          } else if (route.name === screens.CREATE_POST) {
             iconName = focused ? 'plus' : 'plus';
-          } else if (route.name === 'profile') {
-            iconName = focused ? 'user' : 'user';
-          } else if (route.name === 'DrawerAccount') {
+          } else if (route.name === screens.DRAWER_ACCOUNT) {
             iconName = focused ? 'user' : 'user';
           }
 
@@ -56,7 +54,7 @@ export function MainTabs() {
       })}
     >
       <Tab.Screen
-        name={'Home'}
+        name={screens.HOME}
         component={Home}
         options={{
           headerShown: false,
@@ -73,7 +71,7 @@ export function MainTabs() {
         // }}
       />
       <Tab.Screen
-        name="DrawerAccount"
+        name={screens.DRAWER_ACCOUNT}
         component={DrawerAccount}
         // options={{ headerShown: false }}
       />

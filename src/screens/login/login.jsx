@@ -22,7 +22,9 @@ export const Login = () => {
             required
           />
           <Button
-            onPress={() => navigation.navigate('MainTabs', { screen: 'Home' })}
+            onPress={() =>
+              navigation.navigate(screens.MAIN_TABS, { screen: screens.HOME })
+            }
           >
             Login
           </Button>

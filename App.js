@@ -31,7 +31,7 @@ const App = () => {
       >
         {isLoggedIn ? (
           <MainStack.Screen
-            name="MainTabs"
+            name={screens.MAIN_TABS}
             component={MainTabs}
             options={{
               headerShown: false,

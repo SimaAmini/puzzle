@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { FlatList, Image, StyleSheet, View } from 'react-native';
 import { ProfileHeader } from '../../components/profile-header';
 import Screen from '../../layout/screen';
@@ -10,8 +10,6 @@ export default Profile = () => {
     <Screen>
       <ProfileHeader />
       <View style={styles.scrollView}>
-        {/* header */}
-        {/* my posts */}
         <FlatList
           data={dataSource}
           renderItem={({ item }) => (
@@ -30,7 +28,6 @@ export default Profile = () => {
               />
             </View>
           )}
-          //Setting the number of column
           numColumns={3}
           keyExtractor={(item, index) => index.toString()}
         />

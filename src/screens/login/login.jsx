@@ -3,8 +3,12 @@ import { Button, Form } from '../../components';
 import { TextInput } from '../../components/form/text-input';
 import { TitleText } from '../../components/title-text';
 import Screen from '../../layout/screen';
+import { useNavigation } from '@react-navigation/native';
+import { screens } from '../../constants';
 
 export default Login = () => {
+  const navigation = useNavigation();
+
   return (
     <Screen>
       <View style={styles.scrollView}>
@@ -17,7 +21,11 @@ export default Login = () => {
             type="password"
             required
           />
-          <Button>Login</Button>
+          <Button
+            onPress={() => navigation.navigate('MainTabs', { screen: 'Home' })}
+          >
+            Login
+          </Button>
         </Form>
       </View>
     </Screen>

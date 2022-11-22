@@ -3,17 +3,28 @@ import colors from '../configs/colors';
 import { Text } from './text';
 
 export const Button = (props) => {
-  const { children, disabled, title, icon, style } = props;
+  const { children, disabled, title, icon, style, onPress } = props;
+
   if (icon) {
     return (
-      <RNButton title={title} disabled={disabled} style={styles.button}>
+      <RNButton
+        title={title}
+        disabled={disabled}
+        style={[styles.button, style]}
+        onPress={onPress}
+      >
         {/* icon */}
         <Text style={styles.buttonText}>{children}</Text>
       </RNButton>
     );
   }
   return (
-    <RNButton title={title} disabled={disabled} style={[styles.button, style]}>
+    <RNButton
+      title={title}
+      disabled={disabled}
+      style={[styles.button, style]}
+      onPress={onPress}
+    >
       <Text style={styles.buttonText}>{children}</Text>
     </RNButton>
   );

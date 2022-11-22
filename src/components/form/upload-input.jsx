@@ -2,7 +2,6 @@ import React, { useCallback, useMemo, useRef, useState } from 'react';
 import {
   View,
   TouchableOpacity,
-  Button,
   Image,
   PermissionsAndroid,
   StyleSheet,

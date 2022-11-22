@@ -1,7 +1,7 @@
 import { StyleSheet, View } from 'react-native';
 import { Text } from './text';
-import Icon from 'react-native-vector-icons/Feather';
 import colors from '../configs/colors';
+import { Icon } from './icon';
 
 export const PostActions = () => {
   return (

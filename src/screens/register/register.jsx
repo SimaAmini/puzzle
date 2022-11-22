@@ -1,10 +1,10 @@
 import { StyleSheet, View } from 'react-native';
-import { Button, Form } from '../../components';
+
+import { Button, Form, TitleText } from '../../components';
 import { TextInput } from '../../components/form/text-input';
-import { TitleText } from '../../components/title-text';
 import Screen from '../../layout/screen';
 
-export default Register = () => {
+export const Register = () => {
   return (
     <Screen>
       <View style={styles.scrollView}>

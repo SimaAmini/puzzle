@@ -1,15 +1,14 @@
-import { FlatList, StyleSheet, TouchableHighlight, View } from 'react-native';
-import { Post } from '../../components';
-import { ItemSeparator } from '../../components/item-separator';
+import { FlatList, StyleSheet, TouchableHighlight } from 'react-native';
+import { Post, ItemSeparator } from '../../components';
 import Screen from '../../layout/screen';
 
-export default Feed = () => {
+export const Feed = () => {
   return (
     <Screen style={styles.screen}>
       <FlatList
-        data={[{}, {}, {}, {}, {}]}
+        data={[{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }, { id: 5 }]}
         renderItem={({ item }) => (
-          <TouchableHighlight key={item.key} onPress={() => console.log(item)}>
+          <TouchableHighlight key={item.id} onPress={() => console.log(item)}>
             <Post />
           </TouchableHighlight>
         )}

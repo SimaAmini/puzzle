@@ -1,9 +1,10 @@
 import { StyleSheet, View } from 'react-native';
 import { Button, Form, UploadInput } from '../../components';
+
 import { TextInput } from '../../components/form/text-input';
 import Screen from '../../layout/screen';
 
-export default CreatePost = () => {
+export const CreatePost = () => {
   return (
     <Screen>
       <View style={styles.scrollView}>

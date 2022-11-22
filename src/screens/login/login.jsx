@@ -1,12 +1,12 @@
 import { StyleSheet, View } from 'react-native';
-import { Button, Form } from '../../components';
-import { TextInput } from '../../components/form/text-input';
-import { TitleText } from '../../components/title-text';
-import Screen from '../../layout/screen';
 import { useNavigation } from '@react-navigation/native';
+
+import { Button, Form, TitleText } from '../../components';
+import { TextInput } from '../../components/form/text-input';
+import Screen from '../../layout/screen';
 import { screens } from '../../constants';
 
-export default Login = () => {
+export const Login = () => {
   const navigation = useNavigation();
 
   return (

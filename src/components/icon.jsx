@@ -1,16 +1,15 @@
-import { TouchableOpacity as RNButton, StyleSheet } from 'react-native';
-import colors from '../configs/colors';
-import { Text } from './text';
+import { StyleSheet } from 'react-native';
 import MainIcon from 'react-native-vector-icons/Feather';
+import colors from '../configs/colors';
 
 export const Icon = (props) => {
-  const { disabled, title, icon, style, onPress } = props;
+  const { name, size = 20, color = colors.dark, style } = props;
 
   return (
     <MainIcon
-      name="message-circle"
-      size={20}
-      color={colors.dark}
+      name={name}
+      size={size}
+      color={color}
       style={[styles.button, style]}
     />
   );

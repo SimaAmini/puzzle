@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import { FlatList, Image, StyleSheet, View } from 'react-native';
+
 import { ProfileHeader } from '../../components/profile-header';
 import Screen from '../../layout/screen';
 
-export default Profile = () => {
+export const Profile = () => {
   const [dataSource, setDataSource] = useState([{}, {}, {}, {}, {}, {}]);
 
   return (

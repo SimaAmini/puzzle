@@ -3,3 +3,7 @@ export * from './form';
 export * from './button';
 export * from './title-text';
 export * from './post';
+export * from './icon';
+export * from './item-separator';
+export * from './post-actions';
+export * from './post-header';

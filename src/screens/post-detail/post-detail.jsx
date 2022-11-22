@@ -1,17 +1,10 @@
-import {
-  FlatList,
-  Image,
-  StyleSheet,
-  TouchableHighlight,
-  View,
-} from 'react-native';
-import { Text } from '../../components';
-import { PostActions } from '../../components/post-actions';
-import { PostHeader } from '../../components/post-header';
+import { Image, StyleSheet, View } from 'react-native';
+
+import { PostActions, PostHeader, Text } from '../../components';
 import colors from '../../configs/colors';
 import Screen from '../../layout/screen';
 
-export default PostDetail = () => {
+export const PostDetail = () => {
   return (
     <Screen style={styles.screen}>
       <View style={styles.post}>

@@ -7,14 +7,14 @@ import {
   StyleSheet,
   TouchableHighlight,
 } from 'react-native';
+import { Controller, useFormContext } from 'react-hook-form';
 import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
 import { BottomSheetModal, useBottomSheetModal } from '@gorhom/bottom-sheet';
-import Icon from 'react-native-vector-icons/Feather';
-import colors from '../../configs/colors';
-import { Controller, useFormContext } from 'react-hook-form';
 
 import { useValidate } from '../../hooks/use-validate';
+import colors from '../../configs/colors';
 import { Text } from '../text';
+import { Icon } from '../icon';
 
 export const UploadInput = (props) => {
   const { validate } = useValidate(props);

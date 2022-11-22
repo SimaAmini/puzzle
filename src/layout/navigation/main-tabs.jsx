@@ -2,11 +2,11 @@ import { StyleSheet } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import { CreatePost } from '../../screens/create-post';
-import { DrawerAccount } from './drawer-account';
 import { Home } from './home';
 import { screens } from '../../constants';
 import colors from '../../configs/colors';
 import { Icon } from '../../components';
+import { Me } from './me';
 
 const Tab = createBottomTabNavigator();
 
@@ -31,7 +31,7 @@ export function MainTabs() {
             iconName = focused ? 'home' : 'home';
           } else if (route.name === screens.CREATE_POST) {
             iconName = focused ? 'plus' : 'plus';
-          } else if (route.name === screens.DRAWER_ACCOUNT) {
+          } else if (route.name === screens.ME) {
             iconName = focused ? 'user' : 'user';
           }
 
@@ -70,11 +70,7 @@ export function MainTabs() {
         //   tabBarButton: (props) => <CustomTabBarButton {...props} />,
         // }}
       />
-      <Tab.Screen
-        name={screens.DRAWER_ACCOUNT}
-        component={DrawerAccount}
-        // options={{ headerShown: false }}
-      />
+      <Tab.Screen name={screens.ME} component={Me} />
     </Tab.Navigator>
   );
 }

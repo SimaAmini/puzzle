@@ -8,6 +8,5 @@ export const screens = {
   SETTINGS: 'settings',
   ME: 'me',
   HOME: 'home',
-  DRAWER_ACCOUNT: 'drawer-account',
   MAIN_TABS: 'main-tabs',
 };

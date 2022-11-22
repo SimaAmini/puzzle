@@ -1,12 +1,11 @@
 import { Image, StyleSheet, View } from 'react-native';
 
 import { PostActions, PostHeader, Text } from '../../components';
-import colors from '../../configs/colors';
 import Screen from '../../layout/screen';
 
 export const PostDetail = () => {
   return (
-    <Screen style={styles.screen}>
+    <Screen>
       <View style={styles.post}>
         <PostHeader />
         <Image
@@ -25,23 +24,15 @@ export const PostDetail = () => {
   );
 };
 const styles = StyleSheet.create({
-  screen: {
-    backgroundColor: colors.light,
-  },
   post: {
     paddingVertical: 20,
-    paddingHorizontal: 20,
-    // borderWidth: 1,
-    // borderRadius: 10,
-    // borderColor: colors.gray,
-    // marginHorizontal: 20,
   },
-  caption: {},
+  caption: {
+    paddingHorizontal: 10,
+  },
   mainImage: {
     height: 300,
-    backgroundColor: '#FDD7E4',
     alignSelf: 'stretch',
     textAlign: 'center',
-    borderRadius: 10,
   },
 });

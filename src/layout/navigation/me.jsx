@@ -1,6 +1,6 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { screens } from '../../constants';
-import { PostDetail, Profile } from '../../screens';
+import { PostDetail, Profile, Settings } from '../../screens';
 
 const MeStack = createNativeStackNavigator();
 
@@ -13,6 +13,7 @@ export function Me() {
         options={{ headerShown: false }}
       />
       <MeStack.Screen name={screens.POST_DETAIL} component={PostDetail} />
+      <MeStack.Screen name={screens.SETTINGS} component={Settings} />
     </MeStack.Navigator>
   );
 }

@@ -21,20 +21,22 @@ export const Post = () => {
 };
 const styles = StyleSheet.create({
   post: {
-    backgroundColor: colors.light,
+    // backgroundColor: colors.light,
     paddingVertical: 20,
-    paddingHorizontal: 20,
-    borderWidth: 1,
-    borderRadius: 10,
-    borderColor: colors.gray,
-    marginHorizontal: 20,
+    // paddingHorizontal: 20,
+    // borderWidth: 1,
+    // borderRadius: 10,
+    // borderColor: colors.gray,
+    // marginHorizontal: 20,
   },
-  caption: {},
+  caption: {
+    paddingHorizontal: 10,
+  },
   mainImage: {
     height: 300,
     backgroundColor: '#FDD7E4',
     alignSelf: 'stretch',
     textAlign: 'center',
-    borderRadius: 10,
+    // borderRadius: 10,
   },
 });

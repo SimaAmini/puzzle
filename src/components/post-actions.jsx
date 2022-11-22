@@ -27,6 +27,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginVertical: 5,
+    paddingHorizontal: 10,
   },
   likes: {
     fontSize: 14,

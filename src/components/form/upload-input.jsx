@@ -15,6 +15,7 @@ import { useValidate } from '../../hooks/use-validate';
 import colors from '../../configs/colors';
 import { Text } from '../text';
 import { Icon } from '../icon';
+import { useFocusEffect } from '@react-navigation/native';
 
 export const UploadInput = (props) => {
   const { validate } = useValidate(props);
@@ -98,17 +99,29 @@ export const UploadInput = (props) => {
     });
   };
 
-  const bottomSheetModalRef = useRef(null);
+  const ImagePickerModalRef = useRef(null);
 
   const snapPoints = useMemo(() => ['10%', '20%'], []);
 
   const handlePresentModalPress = useCallback(() => {
-    bottomSheetModalRef.current?.present();
+    ImagePickerModalRef.current?.present();
   }, []);
 
   const handleSheetChanges = useCallback((index) => {
     console.log('handleSheetChanges', index);
   }, []);
+
+  useFocusEffect(
+    useCallback(() => {
+      // Do something when the screen is focused
+
+      return () => {
+        // Do something when the screen is unfocused
+        // Useful for cleanup functions
+        ImagePickerModalRef.current?.dismiss();
+      };
+    }, []),
+  );
 
   return (
     <Controller
@@ -138,7 +151,7 @@ export const UploadInput = (props) => {
             </View>
 
             <BottomSheetModal
-              ref={bottomSheetModalRef}
+              ref={ImagePickerModalRef}
               index={1}
               snapPoints={snapPoints}
               onChange={handleSheetChanges}
@@ -168,7 +181,7 @@ const BottomSheetBackground = ({ style }) => {
     <View
       style={[
         {
-          backgroundColor: 'red',
+          backgroundColor: '#fff',
           borderRadius: 12,
           shadowColor: '#000',
           shadowOffset: {

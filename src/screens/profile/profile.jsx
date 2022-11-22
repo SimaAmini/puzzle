@@ -1,5 +1,5 @@
-import { useNavigation } from '@react-navigation/native';
-import { useState } from 'react';
+import { useFocusEffect, useNavigation } from '@react-navigation/native';
+import { useCallback, useRef, useState } from 'react';
 import {
   FlatList,
   Image,
@@ -9,16 +9,55 @@ import {
 } from 'react-native';
 
 import { ProfileHeader } from '../../components/profile-header';
+import { Icon } from '../../components';
 import { screens } from '../../constants';
 import Screen from '../../layout/screen';
+import { SettingsModal } from '../../components/settings-modal';
 
 export const Profile = () => {
-  const [dataSource, setDataSource] = useState([{}, {}, {}, {}, {}, {}]);
+  const [dataSource, setDataSource] = useState([
+    { id: 1 },
+    { id: 2 },
+    { id: 3 },
+    { id: 4 },
+    { id: 5 },
+    { id: 6 },
+  ]);
 
   const navigation = useNavigation();
+  const bottomSheetModalRef = useRef(null);
+
+  const handlePresentModalPress = useCallback(() => {
+    bottomSheetModalRef.current?.present();
+  }, []);
+
+  useFocusEffect(
+    useCallback(() => {
+      // Do something when the screen is focused
+
+      return () => {
+        // Do something when the screen is unfocused
+        // Useful for cleanup functions
+        bottomSheetModalRef.current?.dismiss();
+      };
+    }, []),
+  );
 
   return (
     <Screen>
+      <TouchableHighlight
+        underlayColor="transparent"
+        onPress={handlePresentModalPress}
+        style={{
+          alignItems: 'flex-end',
+          marginRight: 20,
+          padding: 5,
+        }}
+      >
+        <Icon name="settings" />
+      </TouchableHighlight>
+      <SettingsModal ref={bottomSheetModalRef} />
+
       <ProfileHeader />
       <View style={styles.scrollView}>
         <FlatList

@@ -4,8 +4,8 @@ import { BottomSheetModal, useBottomSheetModal } from '@gorhom/bottom-sheet';
 
 import { Text } from './text';
 import { Icon } from './icon';
-import colors from '../configs/colors';
-import { screens } from '../constants';
+import colors from '@configs/colors';
+import { screens } from '@constants';
 import { useNavigation } from '@react-navigation/native';
 
 export const SettingsModal = forwardRef((props, ref) => {

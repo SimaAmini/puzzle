@@ -1,6 +1,7 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { screens } from '../../constants';
-import { Feed, PostDetail } from '../../screens';
+import { screens } from '@constants';
+
+import { Feed, PostDetail } from '@screens';
 
 const Stack = createNativeStackNavigator();
 

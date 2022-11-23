@@ -1,10 +1,8 @@
-import { useFocusEffect } from '@react-navigation/native';
-import { useCallback } from 'react';
 import { StyleSheet, View } from 'react-native';
-import { Button, Form, UploadInput } from '../../components';
+import { Button, Form, UploadInput } from '@components';
 
-import { TextInput } from '../../components/form/text-input';
-import Screen from '../../layout/screen';
+import { TextInput } from '@components/form/text-input';
+import Screen from '@layout/screen';
 
 export const CreatePost = () => {
   return (

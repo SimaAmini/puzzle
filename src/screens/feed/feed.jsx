@@ -1,8 +1,9 @@
 import { useNavigation } from '@react-navigation/native';
 import { FlatList, StyleSheet, TouchableHighlight } from 'react-native';
-import { Post, ItemSeparator } from '../../components';
-import Screen from '../../layout/screen';
-import { screens } from '../../constants';
+import { Post, ItemSeparator } from '@components';
+import Screen from '@layout/screen';
+import { screens } from '@constants';
+
 export const Feed = () => {
   const navigation = useNavigation();
 

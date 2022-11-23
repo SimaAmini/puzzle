@@ -1,5 +1,5 @@
 import { Image, StyleSheet, View } from 'react-native';
-import colors from '../configs/colors';
+import colors from '@configs/colors';
 import { PostActions } from './post-actions';
 import { PostHeader } from './post-header';
 import { Text } from './text';

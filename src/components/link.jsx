@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 import { Alert, Linking, StyleSheet, TouchableOpacity } from 'react-native';
-import colors from '../configs/colors';
+import colors from '@configs/colors';
 import { Text } from './text';
 
 export const Link = ({ url, children }) => {

@@ -11,8 +11,8 @@ import { Controller, useFormContext } from 'react-hook-form';
 import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
 import { BottomSheetModal, useBottomSheetModal } from '@gorhom/bottom-sheet';
 
-import { useValidate } from '../../hooks/use-validate';
-import colors from '../../configs/colors';
+import { useValidate } from '@hooks/use-validate';
+import colors from '@configs/colors';
 import { Text } from '../text';
 import { Icon } from '../icon';
 import { useFocusEffect } from '@react-navigation/native';

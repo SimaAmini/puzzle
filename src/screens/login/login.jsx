@@ -1,10 +1,10 @@
 import { StyleSheet, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-import { Button, Form, TitleText } from '../../components';
-import { TextInput } from '../../components/form/text-input';
-import Screen from '../../layout/screen';
-import { screens } from '../../constants';
+import { Button, Form, TitleText } from '@components';
+import { TextInput } from '@components/form/text-input';
+import Screen from '@layout/screen';
+import { screens } from '@constants';
 
 export const Login = () => {
   const navigation = useNavigation();

@@ -2,8 +2,8 @@ import { View, TextInput as RNTextInput, StyleSheet } from 'react-native';
 
 import { Controller, useFormContext } from 'react-hook-form';
 
-import { useValidate } from '../../hooks/use-validate';
-import colors from '../../configs/colors';
+import { useValidate } from '@hooks/use-validate';
+import colors from '@configs/colors';
 import { Text } from '../text';
 
 export const TextInput = (props) => {

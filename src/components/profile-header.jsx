@@ -1,5 +1,5 @@
 import { StyleSheet, View } from 'react-native';
-import colors from '../configs/colors';
+import colors from '@configs/colors';
 import { Avatar } from './avatar';
 import { Text } from './text';
 import { Link } from './link';

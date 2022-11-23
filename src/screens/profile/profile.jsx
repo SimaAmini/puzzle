@@ -8,11 +8,12 @@ import {
   View,
 } from 'react-native';
 
-import { ProfileHeader } from '../../components/profile-header';
-import { Icon } from '../../components';
-import { screens } from '../../constants';
-import Screen from '../../layout/screen';
-import { SettingsModal } from '../../components/settings-modal';
+import { ProfileHeader } from '@components/profile-header';
+import { Icon } from '@components';
+import { screens } from '@constants';
+
+import Screen from '@layout/screen';
+import { SettingsModal } from '@components/settings-modal';
 
 export const Profile = () => {
   const [dataSource, setDataSource] = useState([

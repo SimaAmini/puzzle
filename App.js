@@ -4,10 +4,10 @@ import { NavigationContainer } from '@react-navigation/native';
 
 import { Register } from './src/screens/register/register';
 import { Login } from './src/screens/login/login';
-import { MainTabs } from './src/layout/navigation/main-tabs';
+import { MainTabs } from './src/navigation/main-tabs';
 
-import { screens } from './src/constants';
 import colors from './src/configs/colors';
+import { screens } from '@constants';
 
 const MainStack = createNativeStackNavigator();
 

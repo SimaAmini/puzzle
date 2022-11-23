@@ -1,7 +1,7 @@
 import { Image, StyleSheet, View } from 'react-native';
 
-import { PostActions, PostHeader, Text } from '../../components';
-import Screen from '../../layout/screen';
+import { PostActions, PostHeader, Text } from '@components';
+import Screen from '@layout/screen';
 
 export const PostDetail = () => {
   return (

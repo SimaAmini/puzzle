@@ -1,6 +1,7 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { screens } from '../../constants';
-import { PostDetail, Profile, Settings } from '../../screens';
+import { screens } from '@constants';
+
+import { PostDetail, Profile, Settings } from '@screens';
 
 const MeStack = createNativeStackNavigator();
 

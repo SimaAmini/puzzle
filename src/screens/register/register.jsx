@@ -1,8 +1,8 @@
 import { StyleSheet, View } from 'react-native';
 
-import { Button, Form, TitleText } from '../../components';
-import { TextInput } from '../../components/form/text-input';
-import Screen from '../../layout/screen';
+import { Button, Form, TitleText } from '@components';
+import { TextInput } from '@components/form/text-input';
+import Screen from '@layout/screen';
 
 export const Register = () => {
   return (

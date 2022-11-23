@@ -1,5 +1,5 @@
 import { TouchableOpacity as RNButton, StyleSheet } from 'react-native';
-import colors from '../configs/colors';
+import colors from '@configs/colors';
 import { Text } from './text';
 
 export const Button = (props) => {

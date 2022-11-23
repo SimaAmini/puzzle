@@ -1,16 +1,17 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { screens } from '@constants';
 
-import { Feed, PostDetail } from '@screens';
+import { PostDetail } from '@screens/post-detail';
+import { screens } from '@constants';
+import { MainTabs } from './main-tabs';
 
 const Stack = createNativeStackNavigator();
 
-export function Home() {
+export function PrivateNavigator() {
   return (
-    <Stack.Navigator initialRouteName={screens.FEED}>
+    <Stack.Navigator>
       <Stack.Screen
-        name={screens.FEED}
-        component={Feed}
+        name={screens.MAIN_TABS}
+        component={MainTabs}
         options={{
           headerShown: false,
         }}

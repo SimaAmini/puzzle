@@ -1,11 +1,10 @@
 import { StyleSheet } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-import { Home } from './home';
 import { Me } from './me';
 import colors from '@configs/colors';
 import { Icon } from '@components/icon';
-import { CreatePost } from '@screens/create-post';
+import { CreatePost, Feed } from '@screens';
 import { screens } from '@constants';
 
 const Tab = createBottomTabNavigator();
@@ -27,7 +26,7 @@ export function MainTabs() {
         tabBarIcon: ({ focused, color, size }) => {
           let iconName;
 
-          if (route.name === screens.HOME) {
+          if (route.name === screens.FEED) {
             iconName = focused ? 'home' : 'home';
           } else if (route.name === screens.CREATE_POST) {
             iconName = focused ? 'plus' : 'plus';
@@ -54,8 +53,8 @@ export function MainTabs() {
       })}
     >
       <Tab.Screen
-        name={screens.HOME}
-        component={Home}
+        name={screens.FEED}
+        component={Feed}
         options={{
           headerShown: false,
         }}

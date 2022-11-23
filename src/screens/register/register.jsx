@@ -1,10 +1,17 @@
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, TouchableOpacity, View } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
-import { Button, Form, TitleText } from '@components';
+import { Button, Form, TitleText, Text } from '@components';
 import { TextInput } from '@components/form/text-input';
 import Screen from '@layout/screen';
+import { useAuthStore } from '@hooks/use-auth-store';
+import { screens } from '@constants';
+import colors from '@configs/colors';
 
 export const Register = () => {
+  const navigation = useNavigation();
+  const authenticate = useAuthStore((state) => state.authenticate);
+
   return (
     <Screen>
       <View style={styles.scrollView}>
@@ -23,7 +30,22 @@ export const Register = () => {
             type="password"
             required
           />
-          <Button>Create Account</Button>
+          <Button
+            onPress={async () => {
+              await authenticate();
+              navigation.navigate(screens.MAIN_TABS);
+            }}
+          >
+            Create Account
+          </Button>
+          <View style={styles.textContainer}>
+            <Text style={styles.text}>Already have an Account?</Text>
+            <TouchableOpacity
+              onPress={() => navigation.navigate(screens.LOGIN)}
+            >
+              <Text style={[styles.text, styles.link]}>Log in</Text>
+            </TouchableOpacity>
+          </View>
         </Form>
       </View>
     </Screen>
@@ -36,5 +58,19 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
     justifyContent: 'center',
     flexGrow: 1,
+  },
+  textContainer: {
+    flexDirection: 'row',
+    alignContent: 'flex-start',
+    marginTop: 10,
+  },
+  text: {
+    fontSize: 16,
+  },
+  link: {
+    color: colors.primary,
+    textDecorationLine: 'underline',
+    marginLeft: 5,
+    fontWeight: 'bold',
   },
 });

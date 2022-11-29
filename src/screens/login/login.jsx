@@ -1,46 +1,55 @@
 import { StyleSheet, TouchableOpacity, View } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import { useForm } from 'react-hook-form';
 
-import { useAuthStore } from '@hooks/use-auth-store';
-import { Form, TitleText, Text, Button } from '@components';
+import { TitleText, Text, Button } from '@components';
 import { TextInput } from '@components/form/text-input';
 import Screen from '@layout/screen';
-import { screens } from '@constants';
 import colors from '@configs/colors';
+import { useLogin } from './use-login';
 
 export const Login = () => {
-  const navigation = useNavigation();
-  const authenticate = useAuthStore((state) => state.authenticate);
+  const { onSubmit, redirectToRegister } = useLogin();
+
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
   return (
     <Screen>
       <View style={styles.scrollView}>
         <TitleText>Login To your Account</TitleText>
-        <Form>
-          <TextInput name="email" label="Email" type="email" required />
-          <TextInput
-            name="password"
-            label="Password"
-            type="password"
-            required
-          />
-          <Button
-            onPress={async () => {
-              await authenticate();
-              navigation.navigate(screens.MAIN_TABS);
-            }}
-          >
-            Login
-          </Button>
-          <View style={styles.textContainer}>
-            <Text style={styles.text}>Do not have an Account?</Text>
-            <TouchableOpacity
-              onPress={() => navigation.navigate(screens.REGISTER)}
-            >
-              <Text style={[styles.text, styles.link]}>Register</Text>
-            </TouchableOpacity>
-          </View>
-        </Form>
+        <TextInput
+          name="userName"
+          label="User Name"
+          control={control}
+          rules={{ required: 'User name is required' }}
+          required
+        />
+
+        <TextInput
+          name="password"
+          label="Password"
+          type="password"
+          control={control}
+          required
+          rules={{
+            required: 'Password is required',
+            minLength: {
+              value: 3,
+              message: 'Password should be minimum 3 characters long',
+            },
+          }}
+        />
+        <Button onPress={handleSubmit(onSubmit)}>Login</Button>
+
+        <View style={styles.textContainer}>
+          <Text style={styles.text}>Do not have an Account?</Text>
+          <TouchableOpacity onPress={redirectToRegister}>
+            <Text style={[styles.text, styles.link]}>Register</Text>
+          </TouchableOpacity>
+        </View>
       </View>
     </Screen>
   );

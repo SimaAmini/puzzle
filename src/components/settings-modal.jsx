@@ -7,11 +7,18 @@ import { Icon } from './icon';
 import colors from '@configs/colors';
 import { screens } from '@constants';
 import { useNavigation } from '@react-navigation/native';
+import { useAuth } from '@hooks/use-auth';
 
 export const SettingsModal = forwardRef((props, ref) => {
   const snapPoints = useMemo(() => ['10%', '20%'], []);
   const navigation = useNavigation();
   const { dismiss } = useBottomSheetModal();
+  const { removeUser, removeToken } = useAuth();
+
+  const logout = () => {
+    removeUser();
+    removeToken();
+  };
 
   return (
     <BottomSheetModal
@@ -44,7 +51,7 @@ export const SettingsModal = forwardRef((props, ref) => {
           </View>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={() => console.log('logged out')}>
+        <TouchableOpacity onPress={logout}>
           <View
             style={{
               flexDirection: 'row',

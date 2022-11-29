@@ -1,10 +1,15 @@
-import { useAuthStore } from '@hooks';
+import { useEffect } from 'react';
+import { useAuth } from '@hooks/use-auth';
+// import AsyncStorage from '@react-native-async-storage/async-storage';
 import { PrivateNavigator } from './private-navigator';
 import { PublicNavigator } from './public-navigator';
 
 export const RootNavigator = () => {
-  //   const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
-  const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
+  const { getToken } = useAuth();
 
-  return isAuthenticated ? <PrivateNavigator /> : <PublicNavigator />;
+  useEffect(() => {
+    // AsyncStorage.clear();
+  }, []);
+
+  return getToken() ? <PrivateNavigator /> : <PublicNavigator />;
 };

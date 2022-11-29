@@ -1,4 +1,5 @@
 import React, { useCallback, useMemo, useRef, useState } from 'react';
+import { useFocusEffect } from '@react-navigation/native';
 import {
   View,
   TouchableOpacity,
@@ -7,24 +8,29 @@ import {
   StyleSheet,
   TouchableHighlight,
 } from 'react-native';
-import { Controller, useFormContext } from 'react-hook-form';
+import { Controller, useController, useForm } from 'react-hook-form';
 import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
 import { BottomSheetModal, useBottomSheetModal } from '@gorhom/bottom-sheet';
 
-import { useValidate } from '@hooks/use-validate';
 import colors from '@configs/colors';
 import { Text } from '../text';
 import { Icon } from '../icon';
-import { useFocusEffect } from '@react-navigation/native';
 
 export const UploadInput = (props) => {
-  const { validate } = useValidate(props);
-  const { control } = useFormContext();
-  const { name, label, placeholder, type, disabled, required } = props;
+  const {
+    name,
+    label,
+    placeholder,
+    type,
+    disabled,
+    required,
+    control,
+    rules = {},
+    setValue,
+  } = props;
 
   const [imageUri, setImageUri] = useState('');
   const { dismiss } = useBottomSheetModal();
-
   const requestCameraPermission = async () => {
     try {
       const granted = await PermissionsAndroid.request(
@@ -52,10 +58,7 @@ export const UploadInput = (props) => {
     let options = {
       mediaType: 'photo',
       presentationStyle: 'fullScreen',
-      storageOptions: {
-        path: 'images',
-        includeBase64: true,
-      },
+      // includeBase64: true,
     };
 
     await launchCamera(options, (response) => {
@@ -68,7 +71,11 @@ export const UploadInput = (props) => {
         console.log('User tapped custom button: ', response.customButton);
         alert(response.customButton);
       } else {
+        console.log('response', response);
         const source = { uri: response.assets[0].uri };
+
+        setValue(name, response.assets[0], { shouldDirty: true });
+
         setImageUri(source);
       }
     });
@@ -78,11 +85,9 @@ export const UploadInput = (props) => {
     let options = {
       mediaType: 'photo',
       presentationStyle: 'fullScreen',
-      storageOptions: {
-        path: 'images',
-        includeBase64: true,
-      },
+      // includeBase64: true,
     };
+
     await launchImageLibrary(options, (response) => {
       if (response.didCancel) {
         console.log('User cancelled image picker');
@@ -94,6 +99,8 @@ export const UploadInput = (props) => {
         alert(response.customButton);
       } else {
         const source = { uri: response.assets[0].uri };
+        setValue(name, response.assets[0], { shouldDirty: true });
+
         setImageUri(source);
       }
     });
@@ -127,7 +134,7 @@ export const UploadInput = (props) => {
     <Controller
       control={control}
       name={name}
-      rules={{ validate }}
+      rules={rules}
       render={({
         field: { onChange, onBlur, value },
         fieldState: { error },
@@ -169,6 +176,11 @@ export const UploadInput = (props) => {
                 </TouchableOpacity>
               </View>
             </BottomSheetModal>
+            {error && (
+              <Text style={{ color: 'red', alignSelf: 'stretch' }}>
+                {error.message || 'Error'}
+              </Text>
+            )}
           </View>
         </>
       )}

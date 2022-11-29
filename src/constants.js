@@ -10,3 +10,5 @@ export const screens = {
   HOME: 'home',
   MAIN_TABS: 'main-tabs',
 };
+
+export const AUTH_STORAGE = 'sima';

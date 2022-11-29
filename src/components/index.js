@@ -7,3 +7,4 @@ export * from './icon';
 export * from './item-separator';
 export * from './post-actions';
 export * from './post-header';
+export * from './activity-indicator';

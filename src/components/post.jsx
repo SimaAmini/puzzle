@@ -1,21 +1,26 @@
 import { Image, StyleSheet, View } from 'react-native';
-import colors from '@configs/colors';
 import { PostActions } from './post-actions';
 import { PostHeader } from './post-header';
 import { Text } from './text';
 
-export const Post = () => {
+export const Post = ({ user, caption, title, createdAt, images }) => {
   return (
     <View style={styles.post}>
-      <PostHeader />
-      <Image
-        style={styles.mainImage}
-        source={{ uri: 'https://api.lorem.space/image?w=300&h=300' }}
-      />
+      <PostHeader {...user} createdAt={createdAt} />
+      {images ? (
+        <Image
+          style={styles.mainImage}
+          source={{ uri: 'https://api.lorem.space/image/book?w=220&h=220' }}
+        />
+      ) : (
+        <Image
+          style={styles.mainImage}
+          source={{ uri: 'https://api.lorem.space/image?w=300&h=300' }}
+        />
+      )}
       <PostActions />
-      <Text style={styles.caption}>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit... more
-      </Text>
+      <Text style={styles.title}>{title}</Text>
+      <Text style={styles.caption}>{caption}</Text>
     </View>
   );
 };
@@ -31,6 +36,10 @@ const styles = StyleSheet.create({
   },
   caption: {
     paddingHorizontal: 10,
+  },
+  title: {
+    paddingHorizontal: 10,
+    fontSize: 20,
   },
   mainImage: {
     height: 300,

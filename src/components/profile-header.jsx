@@ -4,14 +4,14 @@ import { Avatar } from './avatar';
 import { Text } from './text';
 import { Link } from './link';
 
-export const ProfileHeader = () => {
+export const ProfileHeader = ({ username, email }) => {
   return (
     <View style={styles.container}>
       <View style={styles.user}>
         <Avatar style={styles.avatar} />
         <View style={styles.texts}>
-          <Text style={styles.userName}>Sima Amini</Text>
-          <Text style={styles.jobTitle}>Web Developer</Text>
+          <Text style={styles.userName}>{username}</Text>
+          <Text style={styles.jobTitle}>{email}</Text>
         </View>
       </View>
       <View style={styles.bio}>

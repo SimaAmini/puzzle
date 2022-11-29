@@ -1,6 +1,7 @@
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import { useCallback, useRef, useState } from 'react';
 import {
+  ActivityIndicator,
   FlatList,
   Image,
   StyleSheet,
@@ -14,18 +15,19 @@ import { screens } from '@constants';
 
 import Screen from '@layout/screen';
 import { SettingsModal } from '@components/settings-modal';
+import { useProfile } from './use-profile';
+import colors from '@configs/colors';
 
 export const Profile = () => {
-  const [dataSource, setDataSource] = useState([
-    { id: 1 },
-    { id: 2 },
-    { id: 3 },
-    { id: 4 },
-    { id: 5 },
-    { id: 6 },
-  ]);
+  const { data, username, email } = useProfile();
 
   const navigation = useNavigation();
+
+  const redirectToPostDetail = (id) => {
+    return navigation.navigate(screens.POST_DETAIL, {
+      postId: id,
+    });
+  };
   const bottomSheetModalRef = useRef(null);
 
   const handlePresentModalPress = useCallback(() => {
@@ -46,6 +48,7 @@ export const Profile = () => {
 
   return (
     <Screen>
+      {/* <View style={styles.scrollView}> */}
       <TouchableHighlight
         underlayColor="transparent"
         onPress={handlePresentModalPress}
@@ -59,10 +62,10 @@ export const Profile = () => {
       </TouchableHighlight>
       <SettingsModal ref={bottomSheetModalRef} />
 
-      <ProfileHeader />
-      <View style={styles.scrollView}>
+      <ProfileHeader username={username} email={email} />
+      {data ? (
         <FlatList
-          data={dataSource}
+          data={data}
           renderItem={({ item }) => (
             <View
               style={{
@@ -73,23 +76,35 @@ export const Profile = () => {
             >
               <TouchableHighlight
                 key={item.id}
-                onPress={() => navigation.navigate(screens.POST_DETAIL)}
+                onPress={() => redirectToPostDetail(item.id)}
                 activeOpacity={1}
                 underlayColor="transparent"
               >
-                <Image
-                  style={styles.imageThumbnail}
-                  source={{
-                    uri: 'https://api.lorem.space/image/watch?w=150&h=150',
-                  }}
-                />
+                {item.images ? (
+                  <Image
+                    style={styles.imageThumbnail}
+                    source={{
+                      uri: 'https://api.lorem.space/image/book?w=220&h=220',
+                    }}
+                  />
+                ) : (
+                  <Image
+                    style={styles.imageThumbnail}
+                    source={{
+                      uri: 'https://api.lorem.space/image?w=300&h=300',
+                    }}
+                  />
+                )}
               </TouchableHighlight>
             </View>
           )}
           numColumns={3}
           keyExtractor={(item, index) => index.toString()}
         />
-      </View>
+      ) : (
+        <ActivityIndicator color={colors.primary} />
+      )}
+      {/* </View> */}
     </Screen>
   );
 };

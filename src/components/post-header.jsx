@@ -4,14 +4,14 @@ import { Avatar } from './avatar';
 import { Icon } from './icon';
 import { Text } from './text';
 
-export const PostHeader = () => {
+export const PostHeader = ({ username, createdAt }) => {
   return (
     <View style={styles.container}>
       <View style={styles.user}>
         <Avatar />
         <View style={styles.texts}>
-          <Text style={styles.userName}>Sima Amini</Text>
-          <Text style={styles.time}>1h ago</Text>
+          <Text style={styles.userName}>{username}</Text>
+          <Text style={styles.time}>{createdAt}</Text>
         </View>
       </View>
       <View>

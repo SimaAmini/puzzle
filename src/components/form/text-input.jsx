@@ -1,14 +1,10 @@
 import { View, TextInput as RNTextInput, StyleSheet } from 'react-native';
+import { Controller } from 'react-hook-form';
 
-import { Controller, useFormContext } from 'react-hook-form';
-
-import { useValidate } from '@hooks/use-validate';
 import colors from '@configs/colors';
 import { Text } from '../text';
 
 export const TextInput = (props) => {
-  const { validate } = useValidate(props);
-  const { control } = useFormContext();
   const {
     name,
     label,
@@ -18,18 +14,20 @@ export const TextInput = (props) => {
     required,
     multiline,
     numberOfLines = multiline ? 4 : 0,
+    control,
+    rules = {},
   } = props;
 
   return (
     <Controller
       control={control}
       name={name}
-      rules={{ validate }}
+      rules={rules}
       render={({
-        field: { onChange, onBlur, value },
+        field: { value, onChange, onBlur },
         fieldState: { error },
       }) => (
-        <View>
+        <View style={styles.container}>
           {label &&
             (required ? (
               <Text style={styles.label}>{label} *</Text>
@@ -48,6 +46,11 @@ export const TextInput = (props) => {
             multiline={multiline}
             numberOfLines={numberOfLines}
           />
+          {error && (
+            <Text style={{ color: 'red', alignSelf: 'stretch' }}>
+              {error.message || 'Error'}
+            </Text>
+          )}
         </View>
       )}
     />
@@ -55,6 +58,9 @@ export const TextInput = (props) => {
 };
 
 const styles = StyleSheet.create({
+  container: {
+    marginBottom: 10,
+  },
   label: {
     color: colors.black,
     marginBottom: 5,
@@ -66,7 +72,7 @@ const styles = StyleSheet.create({
     minHeight: 40,
     borderWidth: 1,
     borderRadius: 10,
-    marginBottom: 10,
+    // marginBottom: 5,
     paddingHorizontal: 10,
     alignSelf: 'stretch',
   },

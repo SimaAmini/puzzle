@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { Switch } from 'react-native-gesture-handler';
+
 import { Text } from '@components';
 import colors from '@configs/colors';
 import Screen from '@layout/screen';

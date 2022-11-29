@@ -2,22 +2,20 @@ import { useCallback } from 'react';
 import { useMutation } from '@tanstack/react-query';
 import { useNavigation } from '@react-navigation/native';
 
+import { login } from '@services/auth/login';
 import { screens } from '@constants';
-import { register } from '@services/auth/register';
 import { useAuth } from '@hooks/use-auth';
 
-export const useRegister = () => {
+export const useLogin = () => {
   const navigation = useNavigation();
-  const { setToken, setUser } = useAuth();
+  const { setUser, setToken } = useAuth();
 
-  const redirectToLogin = () => navigation.navigate(screens.LOGIN);
+  const redirectToRegister = () => navigation.navigate(screens.REGISTER);
 
   const onSuccess = useCallback(async (data) => {
     const { jwt, user } = data;
     await setToken(jwt);
     await setUser(user);
-
-    return navigation.navigate(screens.MAIN_TABS, { screen: screens.FEED });
   }, []);
 
   const onError = useCallback((e) => {
@@ -25,18 +23,18 @@ export const useRegister = () => {
     //  show error
   }, []);
 
-  const { mutate: registerUser, isLoading: isSaving } = useMutation({
-    mutationFn: register,
+  const { mutate: loginUser, isLoading: isSaving } = useMutation({
+    mutationFn: login,
     onSuccess,
     onError,
   });
 
   const onSubmit = (state) => {
-    registerUser(state);
+    loginUser(state);
   };
 
   return {
     onSubmit,
-    redirectToLogin,
+    redirectToRegister,
   };
 };

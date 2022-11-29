@@ -1,29 +1,31 @@
-import { useNavigation } from '@react-navigation/native';
 import { FlatList, StyleSheet, TouchableHighlight } from 'react-native';
-import { Post, ItemSeparator } from '@components';
+import { Post, ItemSeparator, ActivityIndicator } from '@components';
 import Screen from '@layout/screen';
-import { screens } from '@constants';
+import { useFeed } from './use-feed';
 
 export const Feed = () => {
-  const navigation = useNavigation();
-
+  const { data, redirectToPostDetail } = useFeed();
   return (
     <Screen style={styles.screen}>
-      <FlatList
-        data={[{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }, { id: 5 }]}
-        renderItem={({ item }) => (
-          <TouchableHighlight
-            key={item.id}
-            onPress={() => navigation.navigate(screens.POST_DETAIL)}
-            activeOpacity={1}
-            underlayColor="transparent"
-          >
-            <Post />
-          </TouchableHighlight>
-        )}
-        keyExtractor={(item) => item.id}
-        ItemSeparatorComponent={ItemSeparator}
-      />
+      {data ? (
+        <FlatList
+          data={data}
+          renderItem={({ item }) => (
+            <TouchableHighlight
+              key={item.id}
+              onPress={() => redirectToPostDetail(item.id)}
+              activeOpacity={1}
+              underlayColor="transparent"
+            >
+              <Post {...item} />
+            </TouchableHighlight>
+          )}
+          keyExtractor={(item) => item.id}
+          ItemSeparatorComponent={ItemSeparator}
+        />
+      ) : (
+        <ActivityIndicator />
+      )}
     </Screen>
   );
 };

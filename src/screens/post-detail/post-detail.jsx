@@ -4,6 +4,7 @@ import { PostActions, PostHeader, Text } from '@components';
 import Screen from '@layout/screen';
 import { usePostDetail } from './use-post-detail';
 import colors from '@configs/colors';
+import { DefaultImage } from '@components/default-image';
 
 export const PostDetail = () => {
   const { data } = usePostDetail();
@@ -19,10 +20,7 @@ export const PostDetail = () => {
               source={{ uri: data.images.large }}
             />
           ) : (
-            <Image
-              style={styles.mainImage}
-              source={{ uri: 'https://api.lorem.space/image?w=300&h=300' }}
-            />
+            <DefaultImage style={styles.mainImage} />
           )}
 
           <PostActions />

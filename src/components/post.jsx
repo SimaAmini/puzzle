@@ -1,4 +1,6 @@
 import { Image, StyleSheet, View } from 'react-native';
+
+import { DefaultImage } from './default-image';
 import { PostActions } from './post-actions';
 import { PostHeader } from './post-header';
 import { Text } from './text';
@@ -10,10 +12,7 @@ export const Post = ({ user, caption, title, createdAt, images }) => {
       {images ? (
         <Image style={styles.mainImage} source={{ uri: images.medium }} />
       ) : (
-        <Image
-          style={styles.mainImage}
-          source={{ uri: 'https://api.lorem.space/image?w=300&h=300' }}
-        />
+        <DefaultImage style={styles.mainImage} />
       )}
       <PostActions />
       <Text style={styles.title}>{title}</Text>
@@ -40,9 +39,5 @@ const styles = StyleSheet.create({
   },
   mainImage: {
     height: 300,
-    backgroundColor: '#FDD7E4',
-    alignSelf: 'stretch',
-    textAlign: 'center',
-    // borderRadius: 10,
   },
 });

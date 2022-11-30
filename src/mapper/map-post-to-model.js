@@ -12,7 +12,7 @@ const createImageUrl = (url) => {
 };
 
 const mapImages = ({ data }) => {
-  if (!data || !data.length) return null;
+  // if (!data || !data.length) return null;
   return data.map((item) => ({
     imageId: item.id,
     name: item.attributes.name,
@@ -41,5 +41,10 @@ export const mapPostToModel = ({ data }) => ({
   createdAt: data.attributes.createdAt,
   updatedAt: data.attributes.updatedAt,
   // TODO:
-  images: mapImages(data.attributes.images),
+  images: {
+    large: 'https://api.lorem.space/image/fashion?w=400&h=400',
+    small: 'https://api.lorem.space/image/fashion?w=400&h=400',
+    medium: 'https://api.lorem.space/image/fashion?w=400&h=400',
+    thumbnail: 'https://api.lorem.space/image/fashion?w=400&h=400',
+  },
 });

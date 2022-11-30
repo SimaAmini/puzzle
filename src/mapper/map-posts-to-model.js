@@ -18,6 +18,7 @@ const mapImages = ({ data }) => {
     imageId: item.id,
     name: item.attributes.name,
     alternativeText: item.attributes.alternativeText,
+    alternativeText: item.attributes.alternativeText,
     large:
       item.attributes.formats &&
       createImageUrl(item.attributes.formats.large?.url),
@@ -31,23 +32,6 @@ const mapImages = ({ data }) => {
       item.attributes.formats &&
       createImageUrl(item.attributes.formats.thumbnail?.url),
   };
-  // return data.map((item) => ({
-  //   imageId: item.id,
-  //   name: item.attributes.name,
-  //   alternativeText: item.attributes.alternativeText,
-  //   large:
-  //     item.attributes.formats &&
-  //     createImageUrl(item.attributes.formats.large?.url),
-  //   small:
-  //     item.attributes.formats &&
-  //     createImageUrl(item.attributes.formats.small?.url),
-  //   medium:
-  //     item.attributes.formats &&
-  //     createImageUrl(item.attributes.formats.medium?.url),
-  //   thumbnail:
-  //     item.attributes.formats &&
-  //     createImageUrl(item.attributes.formats.thumbnail?.url),
-  // }));
 };
 
 export const mapPostsToModel = ({ data }) => {

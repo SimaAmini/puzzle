@@ -28,7 +28,12 @@ export const mapMyPostsToModel = ({ results }) => {
       createdAt: item.createdAt,
       updatedAt: item.updatedAt,
       publishedAt: item.publishedAt,
-      images: mapImages(item.images),
+      images: {
+        large: 'https://api.lorem.space/image/fashion?w=200&h=200',
+        small: 'https://api.lorem.space/image/fashion?w=200&h=200',
+        medium: 'https://api.lorem.space/image/fashion?w=200&h=200',
+        thumbnail: 'https://api.lorem.space/image/fashion?w=200&h=200',
+      },
     };
   });
 };

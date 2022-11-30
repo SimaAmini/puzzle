@@ -8,3 +8,6 @@ export * from './item-separator';
 export * from './post-actions';
 export * from './post-header';
 export * from './activity-indicator';
+export * from './settings-modal';
+export * from './default-image';
+export * from './profile-header';

@@ -1,5 +1,4 @@
-import { useFocusEffect, useNavigation } from '@react-navigation/native';
-import { useCallback, useRef, useState } from 'react';
+import { useCallback, useRef } from 'react';
 import {
   ActivityIndicator,
   FlatList,
@@ -9,14 +8,13 @@ import {
   View,
 } from 'react-native';
 
-import { ProfileHeader } from '@components/profile-header';
-import { Icon } from '@components';
-import { screens } from '@constants';
+import { useFocusEffect, useNavigation } from '@react-navigation/native';
 
+import { SettingsModal, DefaultImage, Icon, ProfileHeader } from '@components';
 import Screen from '@layout/screen';
-import { SettingsModal } from '@components/settings-modal';
-import { useProfile } from './use-profile';
 import colors from '@configs/colors';
+import { screens } from '@constants';
+import { useProfile } from './use-profile';
 
 export const Profile = () => {
   const { data, username, email } = useProfile();
@@ -84,16 +82,11 @@ export const Profile = () => {
                   <Image
                     style={styles.imageThumbnail}
                     source={{
-                      uri: 'https://api.lorem.space/image/book?w=220&h=220',
+                      uri: item.images.medium,
                     }}
                   />
                 ) : (
-                  <Image
-                    style={styles.imageThumbnail}
-                    source={{
-                      uri: 'https://api.lorem.space/image?w=300&h=300',
-                    }}
-                  />
+                  <DefaultImage style={styles.imageThumbnail} />
                 )}
               </TouchableHighlight>
             </View>
@@ -119,5 +112,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     height: 100,
+    borderColor: colors.gray,
+    borderWidth: 1,
   },
 });

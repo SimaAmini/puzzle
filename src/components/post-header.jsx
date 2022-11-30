@@ -3,15 +3,17 @@ import colors from '@configs/colors';
 import { Avatar } from './avatar';
 import { Icon } from './icon';
 import { Text } from './text';
+import { useDate } from '@hooks/use-date';
 
 export const PostHeader = ({ username, createdAt }) => {
+  const { fromNow } = useDate();
   return (
     <View style={styles.container}>
       <View style={styles.user}>
         <Avatar />
         <View style={styles.texts}>
           <Text style={styles.userName}>{username}</Text>
-          <Text style={styles.time}>{createdAt}</Text>
+          <Text style={styles.time}>{fromNow(createdAt)}</Text>
         </View>
       </View>
       <View>

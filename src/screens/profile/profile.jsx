@@ -1,6 +1,5 @@
 import { useCallback, useRef } from 'react';
 import {
-  ActivityIndicator,
   FlatList,
   Image,
   StyleSheet,
@@ -10,7 +9,13 @@ import {
 
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
 
-import { SettingsModal, DefaultImage, Icon, ProfileHeader } from '@components';
+import {
+  SettingsModal,
+  DefaultImage,
+  Icon,
+  ProfileHeader,
+  ActivityIndicator,
+} from '@components';
 import Screen from '@layout/screen';
 import colors from '@configs/colors';
 import { screens } from '@constants';
@@ -95,7 +100,7 @@ export const Profile = () => {
           keyExtractor={(item, index) => index.toString()}
         />
       ) : (
-        <ActivityIndicator color={colors.primary} />
+        <ActivityIndicator />
       )}
       {/* </View> */}
     </Screen>

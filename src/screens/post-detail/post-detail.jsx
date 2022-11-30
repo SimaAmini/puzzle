@@ -1,9 +1,8 @@
-import { ActivityIndicator, Image, StyleSheet, View } from 'react-native';
+import { Image, StyleSheet, View } from 'react-native';
 
-import { PostActions, PostHeader, Text } from '@components';
+import { PostActions, PostHeader, Text, ActivityIndicator } from '@components';
 import Screen from '@layout/screen';
 import { usePostDetail } from './use-post-detail';
-import colors from '@configs/colors';
 import { DefaultImage } from '@components/default-image';
 
 export const PostDetail = () => {
@@ -28,7 +27,7 @@ export const PostDetail = () => {
           <Text style={styles.caption}>{data.caption}</Text>
         </View>
       ) : (
-        <ActivityIndicator color={colors.primary} />
+        <ActivityIndicator />
       )}
     </Screen>
   );

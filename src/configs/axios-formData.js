@@ -4,7 +4,7 @@ import { authStore } from '@hooks/auth-store';
 
 const defaults = {
   headers: () => ({
-    'Content-Type': 'application/json',
+    'Content-Type': 'multipart/form-data',
     Authorization: authStore.getState().getToken()
       ? `Bearer ${authStore.getState().getToken()}`
       : undefined,
@@ -50,10 +50,7 @@ const api = (method, url, data) => {
   });
 };
 
-export const Axios = {
-  get: (...args) => api('get', ...args),
+export const AxiosFormData = {
   post: (...args) => api('post', ...args),
   put: (...args) => api('put', ...args),
-  patch: (...args) => api('patch', ...args),
-  delete: (...args) => api('delete', ...args),
 };

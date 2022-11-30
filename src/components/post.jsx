@@ -8,10 +8,7 @@ export const Post = ({ user, caption, title, createdAt, images }) => {
     <View style={styles.post}>
       <PostHeader {...user} createdAt={createdAt} />
       {images ? (
-        <Image
-          style={styles.mainImage}
-          source={{ uri: 'https://api.lorem.space/image/book?w=220&h=220' }}
-        />
+        <Image style={styles.mainImage} source={{ uri: images.medium }} />
       ) : (
         <Image
           style={styles.mainImage}

@@ -9,7 +9,6 @@ export const useCreatePost = () => {
   const navigation = useNavigation();
 
   const onSuccess = useCallback(async (data) => {
-    console.log('onSuccess', data);
     const { id } = data;
 
     return navigation.navigate(screens.POST_DETAIL, {
@@ -29,7 +28,6 @@ export const useCreatePost = () => {
   });
 
   const onSubmit = (state) => {
-    console.log('onSubmit:', state);
     create(state);
   };
 

@@ -6,7 +6,7 @@ import { usePostDetail } from './use-post-detail';
 import colors from '@configs/colors';
 
 export const PostDetail = () => {
-  const { data, isLoading } = usePostDetail();
+  const { data } = usePostDetail();
 
   return (
     <Screen>
@@ -16,7 +16,7 @@ export const PostDetail = () => {
           {data.images ? (
             <Image
               style={styles.mainImage}
-              source={{ uri: 'https://api.lorem.space/image/book?w=220&h=220' }}
+              source={{ uri: data.images.large }}
             />
           ) : (
             <Image

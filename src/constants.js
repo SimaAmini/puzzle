@@ -12,3 +12,5 @@ export const screens = {
 };
 
 export const AUTH_STORAGE = 'sima';
+
+export const BASE_URL = 'https://powerful-dusk-84737.herokuapp.com';

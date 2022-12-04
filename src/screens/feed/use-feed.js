@@ -14,7 +14,7 @@ export const useFeed = () => {
   const { data, isLoading } = useQuery({
     queryKey: ['posts'],
     queryFn: getPosts,
-    refetchOnWindowFocus: false,
+    // refetchOnWindowFocus: false,
   });
 
   return {

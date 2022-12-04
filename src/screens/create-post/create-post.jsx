@@ -4,23 +4,9 @@ import { Button, UploadInput } from '@components';
 import { TextInput } from '@components/form/text-input';
 import Screen from '@layout/screen';
 import { useCreatePost } from './use-create-post';
-import { useForm } from 'react-hook-form';
 
 export const CreatePost = () => {
-  const { onSubmit } = useCreatePost();
-
-  const {
-    control,
-    handleSubmit,
-    formState: { errors, dirtyFields },
-    setValue,
-  } = useForm({
-    defaultValues: {
-      image: '',
-      caption: '',
-      title: '',
-    },
-  });
+  const { onSubmit, control, handleSubmit, setValue } = useCreatePost();
 
   return (
     <Screen>

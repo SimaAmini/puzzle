@@ -22,7 +22,7 @@ const api = (method, url, data) => {
   return new Promise((resolve, reject) => {
     axios({
       method,
-      url: `${'https://powerful-dusk-84737.herokuapp.com/api'}${url}`,
+      url: `${'http://192.168.1.100:1337/api'}${url}`,
       data,
       headers: defaults.headers(),
     }).then(

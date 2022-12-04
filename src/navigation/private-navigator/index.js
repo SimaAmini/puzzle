@@ -16,7 +16,13 @@ export function PrivateNavigator() {
           headerShown: false,
         }}
       />
-      <Stack.Screen name={screens.POST_DETAIL} component={PostDetail} />
+      <Stack.Screen
+        name={screens.POST_DETAIL}
+        component={PostDetail}
+        options={{
+          title: 'Post',
+        }}
+      />
     </Stack.Navigator>
   );
 }

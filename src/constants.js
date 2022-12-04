@@ -11,6 +11,6 @@ export const screens = {
   MAIN_TABS: 'main-tabs',
 };
 
-export const AUTH_STORAGE = 'sima';
+export const AUTH_STORAGE = 'auth-storage';
 
-export const BASE_URL = 'https://powerful-dusk-84737.herokuapp.com';
+export const BASE_URL = 'http://192.168.1.100:1337';

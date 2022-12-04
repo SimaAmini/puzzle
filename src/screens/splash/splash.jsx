@@ -1,14 +1,14 @@
-import { StyleSheet, View } from 'react-native';
+import { Image, StyleSheet, View } from 'react-native';
 
 import Screen from '@layout/screen';
-import { Text } from '@components';
+import colors from '@configs/colors';
 
 export const Splash = () => {
   return (
     <Screen>
       <View style={styles.scrollView}>
         <View style={styles.container}>
-          <Text>Splash</Text>
+          <Image source={require('../../assets/logo.png')} />
         </View>
       </View>
     </Screen>
@@ -18,8 +18,9 @@ export const Splash = () => {
 const styles = StyleSheet.create({
   scrollView: {
     flex: 1,
-    marginHorizontal: 20,
     justifyContent: 'center',
-    flexGrow: 1,
+    // flexGrow: 1,
+    alignItems: 'center',
+    backgroundColor: colors.light,
   },
 });

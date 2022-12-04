@@ -4,12 +4,14 @@ import Screen from '@layout/screen';
 import { useFeed } from './use-feed';
 
 export const Feed = () => {
-  const { data, redirectToPostDetail } = useFeed();
+  const { data, redirectToPostDetail, loadMore } = useFeed();
+
   return (
     <Screen style={styles.screen}>
       {data ? (
         <FlatList
           data={data}
+          onEndReached={loadMore}
           renderItem={({ item }) => (
             <TouchableHighlight
               key={item.id}

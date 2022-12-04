@@ -25,5 +25,6 @@ export const RootNavigator = () => {
 
   if (loading && token === 'fake') return <Splash />;
   if (token && token !== 'fake') return <PrivateNavigator />;
-  <PublicNavigator />;
+
+  return <PublicNavigator />;
 };

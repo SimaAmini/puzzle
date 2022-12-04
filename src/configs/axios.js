@@ -30,7 +30,7 @@ const api = (method, url, data) => {
         return resolve(response.data);
       },
       (error) => {
-        console.log('error:::::::::::', error);
+        // console.log('error:::::::::::', error);
 
         if (error.response) {
           if (error.response.data.error.code === 'INVALID_TOKEN') {

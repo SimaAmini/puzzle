@@ -34,8 +34,8 @@ const mapImages = ({ data }) => {
   };
 };
 
-export const mapPostsToModel = ({ data }) => {
-  return data.map((item) => {
+export const mapPostsToModel = ({ data, meta }) => {
+  const posts = data.map((item) => {
     const { id, attributes } = item;
     return {
       id,
@@ -51,4 +51,8 @@ export const mapPostsToModel = ({ data }) => {
       user: mapUser(attributes.user),
     };
   });
+  return {
+    data: posts,
+    pageCount: meta && meta.pagination && meta.pagination.pageCount,
+  };
 };

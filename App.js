@@ -1,6 +1,7 @@
 import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import Toast from 'react-native-toast-message';
 
 import { RootNavigator } from '@navigation';
 
@@ -12,6 +13,7 @@ const App = () => {
       <NavigationContainer>
         <RootNavigator />
       </NavigationContainer>
+      <Toast />
     </QueryClientProvider>
   );
 };

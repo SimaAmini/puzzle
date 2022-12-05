@@ -5,9 +5,11 @@ import { useForm } from 'react-hook-form';
 
 import { createPost } from '@services/post/create-post';
 import { screens } from '@constants';
+import { useToast } from '@hooks/use-toast';
 
 export const useCreatePost = () => {
   const navigation = useNavigation();
+  const { showErrorToast } = useToast();
 
   const onSuccess = useCallback(async (data) => {
     const { id } = data;
@@ -16,6 +18,7 @@ export const useCreatePost = () => {
       caption: '',
       title: '',
     });
+
     return navigation.navigate(screens.POST_DETAIL, {
       postId: id,
       newPost: true,
@@ -23,8 +26,10 @@ export const useCreatePost = () => {
   }, []);
 
   const onError = useCallback((e) => {
-    console.log('onError', e);
-    //  show error
+    showErrorToast({
+      title: 'Error!',
+      body: e.message,
+    });
   }, []);
 
   const { mutate: create, isLoading } = useMutation({

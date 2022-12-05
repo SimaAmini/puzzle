@@ -5,10 +5,12 @@ import { useNavigation } from '@react-navigation/native';
 import { login } from '@services/auth/login';
 import { screens } from '@constants';
 import { useAuth } from '@hooks/use-auth';
+import { useToast } from '@hooks/use-toast';
 
 export const useLogin = () => {
   const navigation = useNavigation();
   const { setUser, setToken } = useAuth();
+  const { showErrorToast } = useToast();
 
   const redirectToRegister = () => navigation.navigate(screens.REGISTER);
 
@@ -19,8 +21,10 @@ export const useLogin = () => {
   }, []);
 
   const onError = useCallback((e) => {
-    console.log(e);
-    //  show error
+    showErrorToast({
+      title: 'Error!',
+      body: e.message,
+    });
   }, []);
 
   const { mutate: loginUser, isLoading } = useMutation({

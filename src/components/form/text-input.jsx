@@ -47,9 +47,7 @@ export const TextInput = (props) => {
             numberOfLines={numberOfLines}
           />
           {error && (
-            <Text style={{ color: 'red', alignSelf: 'stretch' }}>
-              {error.message || 'Error'}
-            </Text>
+            <Text style={styles.errorMessage}>{error.message || 'Error'}</Text>
           )}
         </View>
       )}
@@ -74,6 +72,10 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     // marginBottom: 5,
     paddingHorizontal: 10,
+    alignSelf: 'stretch',
+  },
+  errorMessage: {
+    color: 'red',
     alignSelf: 'stretch',
   },
 });

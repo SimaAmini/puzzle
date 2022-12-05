@@ -1,13 +1,13 @@
-import { forwardRef, useMemo, useRef } from 'react';
+import { forwardRef, useMemo } from 'react';
 import { View, TouchableOpacity, StyleSheet } from 'react-native';
 import { BottomSheetModal, useBottomSheetModal } from '@gorhom/bottom-sheet';
+import { useNavigation } from '@react-navigation/native';
 
 import { Text } from './text';
 import { Icon } from './icon';
-import colors from '@configs/colors';
 import { screens } from '@constants';
-import { useNavigation } from '@react-navigation/native';
 import { useAuth } from '@hooks/use-auth';
+import { BottomSheetBackground } from './button-sheet-background';
 
 export const SettingsModal = forwardRef((props, ref) => {
   const snapPoints = useMemo(() => ['10%', '20%'], []);
@@ -20,6 +20,11 @@ export const SettingsModal = forwardRef((props, ref) => {
     removeToken();
   };
 
+  const redirectToSettingsPage = () => {
+    navigation.navigate(screens.SETTINGS);
+    dismiss();
+  };
+
   return (
     <BottomSheetModal
       ref={ref}
@@ -29,69 +34,23 @@ export const SettingsModal = forwardRef((props, ref) => {
       backgroundComponent={(props) => <BottomSheetBackground {...props} />}
     >
       <View style={styles.contentContainer}>
-        <TouchableOpacity
-          onPress={() => {
-            navigation.navigate(screens.SETTINGS);
-            dismiss();
-          }}
-        >
-          <View
-            style={{
-              flexDirection: 'row',
-            }}
-          >
+        <TouchableOpacity onPress={redirectToSettingsPage}>
+          <View style={styles.button}>
             <Icon name="settings" />
-            <Text
-              style={{
-                marginLeft: 10,
-              }}
-            >
-              Settings
-            </Text>
+            <Text style={styles.buttonText}>Settings</Text>
           </View>
         </TouchableOpacity>
 
         <TouchableOpacity onPress={logout}>
-          <View
-            style={{
-              flexDirection: 'row',
-            }}
-          >
+          <View style={styles.button}>
             <Icon name="lock" />
-            <Text
-              style={{
-                marginLeft: 10,
-              }}
-            >
-              Logout
-            </Text>
+            <Text style={styles.buttonText}>Logout</Text>
           </View>
         </TouchableOpacity>
       </View>
     </BottomSheetModal>
   );
 });
-const BottomSheetBackground = ({ style }) => {
-  return (
-    <View
-      style={[
-        {
-          backgroundColor: '#fff',
-          borderRadius: 12,
-          shadowColor: '#000',
-          shadowOffset: {
-            width: 0,
-            height: 2,
-          },
-          shadowOpacity: 0.25,
-          shadowRadius: 3.84,
-          elevation: 5,
-        },
-        { ...style },
-      ]}
-    />
-  );
-};
 
 const styles = StyleSheet.create({
   contentContainer: {
@@ -100,33 +59,10 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
     paddingHorizontal: 10,
   },
-  box: {
-    backgroundColor: '#F2F2F2',
-    height: 140,
-    borderRadius: 10,
-    padding: 10,
-    justifyContent: 'space-between',
+  button: {
     flexDirection: 'row',
   },
-  iconContainer: {
-    backgroundColor: '#e6e5e5',
-    width: 30,
-    height: 30,
-    borderWidth: 2,
-    borderRadius: 10,
-    borderColor: colors.primary,
-    alignItems: 'center',
-    justifyContent: 'center',
-    alignSelf: 'flex-end',
-  },
-  label: {
-    color: colors.black,
-    marginBottom: 5,
-    fontSize: 14,
-  },
-  imagePreview: {
-    width: 100,
-    height: 100,
-    borderRadius: 10,
+  buttonText: {
+    marginLeft: 10,
   },
 });

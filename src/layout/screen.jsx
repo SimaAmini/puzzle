@@ -6,7 +6,7 @@ import colors from '@configs/colors';
 export default Screen = ({ children, style }) => {
   return (
     <SafeAreaView style={[styles.screen, style]}>
-      <GestureHandlerRootView style={{ flex: 1 }}>
+      <GestureHandlerRootView style={styles.gestureContainer}>
         <View style={[styles.view, style]}>
           <BottomSheetModalProvider>{children}</BottomSheetModalProvider>
         </View>
@@ -22,6 +22,9 @@ const styles = StyleSheet.create({
     backgroundColor: colors.white,
   },
   view: {
+    flex: 1,
+  },
+  gestureContainer: {
     flex: 1,
   },
 });

@@ -51,15 +51,10 @@ export const Profile = () => {
 
   return (
     <Screen>
-      {/* <View style={styles.scrollView}> */}
       <TouchableHighlight
         underlayColor="transparent"
         onPress={handlePresentModalPress}
-        style={{
-          alignItems: 'flex-end',
-          marginRight: 20,
-          padding: 5,
-        }}
+        style={styles.iconContainer}
       >
         <Icon name="settings" />
       </TouchableHighlight>
@@ -70,13 +65,7 @@ export const Profile = () => {
         <FlatList
           data={data}
           renderItem={({ item }) => (
-            <View
-              style={{
-                flex: 1,
-                flexDirection: 'column',
-                margin: 1,
-              }}
-            >
+            <View style={styles.itemContainer}>
               <TouchableHighlight
                 key={item.id}
                 onPress={() => redirectToPostDetail(item.id)}
@@ -102,7 +91,6 @@ export const Profile = () => {
       ) : (
         <ActivityIndicator />
       )}
-      {/* </View> */}
     </Screen>
   );
 };
@@ -119,5 +107,15 @@ const styles = StyleSheet.create({
     height: 100,
     borderColor: colors.gray,
     borderWidth: 1,
+  },
+  iconContainer: {
+    alignItems: 'flex-end',
+    marginRight: 20,
+    padding: 5,
+  },
+  itemContainer: {
+    flex: 1,
+    flexDirection: 'column',
+    margin: 1,
   },
 });

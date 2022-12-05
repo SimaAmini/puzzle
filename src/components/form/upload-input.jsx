@@ -8,13 +8,14 @@ import {
   StyleSheet,
   TouchableHighlight,
 } from 'react-native';
-import { Controller, useController, useForm } from 'react-hook-form';
+import { Controller } from 'react-hook-form';
 import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
 import { BottomSheetModal, useBottomSheetModal } from '@gorhom/bottom-sheet';
 
 import colors from '@configs/colors';
 import { Text } from '../text';
 import { Icon } from '../icon';
+import { BottomSheetBackground } from '@components/button-sheet-background';
 
 export const UploadInput = (props) => {
   const {
@@ -58,7 +59,6 @@ export const UploadInput = (props) => {
     let options = {
       mediaType: 'photo',
       presentationStyle: 'fullScreen',
-      // includeBase64: true,
     };
 
     await launchCamera(options, (response) => {
@@ -85,7 +85,6 @@ export const UploadInput = (props) => {
     let options = {
       mediaType: 'photo',
       presentationStyle: 'fullScreen',
-      // includeBase64: true,
     };
 
     await launchImageLibrary(options, (response) => {
@@ -177,35 +176,13 @@ export const UploadInput = (props) => {
               </View>
             </BottomSheetModal>
             {error && (
-              <Text style={{ color: 'red', alignSelf: 'stretch' }}>
+              <Text style={styles.errorMessage}>
                 {error.message || 'Error'}
               </Text>
             )}
           </View>
         </>
       )}
-    />
-  );
-};
-
-const BottomSheetBackground = ({ style }) => {
-  return (
-    <View
-      style={[
-        {
-          backgroundColor: '#fff',
-          borderRadius: 12,
-          shadowColor: '#000',
-          shadowOffset: {
-            width: 0,
-            height: 2,
-          },
-          shadowOpacity: 0.25,
-          shadowRadius: 3.84,
-          elevation: 5,
-        },
-        { ...style },
-      ]}
     />
   );
 };
@@ -245,5 +222,9 @@ const styles = StyleSheet.create({
     width: 100,
     height: 100,
     borderRadius: 10,
+  },
+  errorMessage: {
+    color: 'red',
+    alignSelf: 'stretch',
   },
 });

@@ -17,7 +17,7 @@ export function MainTabs() {
         headerStyle: {
           backgroundColor: colors.primary,
         },
-        headerTintColor: '#fff',
+        headerTintColor: colors.white,
         headerTitleStyle: {
           fontWeight: 'bold',
           fontFamily: 'Rubik',
@@ -41,13 +41,6 @@ export function MainTabs() {
         tabBarInactiveTintColor: 'gray',
 
         tabBarStyle: {
-          // position: 'absolute',
-          // bottom: 25,
-          // marginHorizontal: 25,
-          // elevation: 0,
-          // backgroundColor: '#fff',
-          // borderRadius: 10,
-          // height: 60,
           ...styles.shadow,
         },
       })}
@@ -59,16 +52,7 @@ export function MainTabs() {
           headerShown: false,
         }}
       />
-      <Tab.Screen
-        name={screens.CREATE_POST}
-        component={CreatePost}
-        // options={{
-        //   tabBarIcon: ({ focused }) => (
-        //     <Icon name="plus" size={30} color={colors.white} />
-        //   ),
-        //   tabBarButton: (props) => <CustomTabBarButton {...props} />,
-        // }}
-      />
+      <Tab.Screen name={screens.CREATE_POST} component={CreatePost} />
       <Tab.Screen name={screens.ME} component={Me} />
     </Tab.Navigator>
   );
@@ -86,25 +70,3 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
 });
-// const CustomTabBarButton = ({ children, onPress }) => (
-//   <TouchableOpacity
-//     style={{
-//       // top: -30,
-//       justifyContent: 'center',
-//       alignItems: 'center',
-//       ...styles.shadow,
-//     }}
-//     onPress={onPress}
-//   >
-//     <View
-//       style={{
-//         width: 50,
-//         height: 50,
-//         borderRadius: 25,
-//         backgroundColor: colors.primary,
-//       }}
-//     >
-//       {children}
-//     </View>
-//   </TouchableOpacity>
-// );

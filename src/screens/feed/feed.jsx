@@ -24,6 +24,11 @@ export const Feed = () => {
           )}
           keyExtractor={(item) => item.id}
           ItemSeparatorComponent={ItemSeparator}
+          getItemLayout={(data, index) => ({
+            length: 450,
+            offset: 10 * index,
+            index,
+          })}
         />
       ) : (
         <ActivityIndicator />

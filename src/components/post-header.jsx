@@ -29,6 +29,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingHorizontal: 10,
+    height: 80,
   },
   user: {
     flexDirection: 'row',

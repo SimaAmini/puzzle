@@ -22,13 +22,8 @@ export const Post = ({ user, caption, title, createdAt, images }) => {
 };
 const styles = StyleSheet.create({
   post: {
-    // backgroundColor: colors.light,
     paddingVertical: 20,
-    // paddingHorizontal: 20,
-    // borderWidth: 1,
-    // borderRadius: 10,
-    // borderColor: colors.gray,
-    // marginHorizontal: 20,
+    height: 450,
   },
   caption: {
     paddingHorizontal: 10,

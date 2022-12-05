@@ -8,7 +8,7 @@ import colors from '@configs/colors';
 import { useRegister } from './useRegister';
 
 export const Register = () => {
-  const { onSubmit, redirectToLogin } = useRegister();
+  const { onSubmit, isLoading, redirectToLogin } = useRegister();
 
   const { control, handleSubmit } = useForm();
 
@@ -67,7 +67,13 @@ export const Register = () => {
           }}
           required
         /> */}
-        <Button onPress={handleSubmit(onSubmit)}>Create Account</Button>
+        <Button
+          onPress={handleSubmit(onSubmit)}
+          loading={isLoading}
+          disabled={isLoading}
+        >
+          Create Account
+        </Button>
         <View style={styles.textContainer}>
           <Text style={styles.text}>Already have an Account?</Text>
           <TouchableOpacity onPress={redirectToLogin}>

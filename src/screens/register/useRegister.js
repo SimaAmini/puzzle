@@ -25,7 +25,7 @@ export const useRegister = () => {
     //  show error
   }, []);
 
-  const { mutate: registerUser, isLoading: isSaving } = useMutation({
+  const { mutate: registerUser, isLoading } = useMutation({
     mutationFn: register,
     onSuccess,
     onError,
@@ -37,6 +37,7 @@ export const useRegister = () => {
 
   return {
     onSubmit,
+    isLoading,
     redirectToLogin,
   };
 };

@@ -6,7 +6,8 @@ import Screen from '@layout/screen';
 import { useCreatePost } from './use-create-post';
 
 export const CreatePost = () => {
-  const { onSubmit, control, handleSubmit, setValue } = useCreatePost();
+  const { onSubmit, isLoading, control, handleSubmit, setValue } =
+    useCreatePost();
 
   return (
     <Screen>
@@ -46,7 +47,13 @@ export const CreatePost = () => {
             },
           }}
         />
-        <Button onPress={handleSubmit(onSubmit)}>Upload</Button>
+        <Button
+          onPress={handleSubmit(onSubmit)}
+          loading={isLoading}
+          disabled={isLoading}
+        >
+          Upload
+        </Button>
       </View>
     </Screen>
   );

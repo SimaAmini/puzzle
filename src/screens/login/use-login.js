@@ -23,7 +23,7 @@ export const useLogin = () => {
     //  show error
   }, []);
 
-  const { mutate: loginUser, isLoading: isSaving } = useMutation({
+  const { mutate: loginUser, isLoading } = useMutation({
     mutationFn: login,
     onSuccess,
     onError,
@@ -35,6 +35,7 @@ export const useLogin = () => {
 
   return {
     onSubmit,
+    isLoading,
     redirectToRegister,
   };
 };

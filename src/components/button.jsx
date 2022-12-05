@@ -1,10 +1,15 @@
-import { TouchableOpacity as RNButton, StyleSheet } from 'react-native';
+import {
+  TouchableOpacity as RNButton,
+  StyleSheet,
+  View,
+  ActivityIndicator,
+} from 'react-native';
 import colors from '@configs/colors';
 import { Text } from './text';
 
 export const Button = (props) => {
-  const { children, disabled, title, icon, style, onPress } = props;
-
+  const { children, disabled, title, icon, style, onPress, loading } = props;
+  // TODO:
   if (icon) {
     return (
       <RNButton
@@ -25,7 +30,16 @@ export const Button = (props) => {
       style={[styles.button, style]}
       onPress={onPress}
     >
-      <Text style={styles.buttonText}>{children}</Text>
+      <View style={styles.container}>
+        {loading && (
+          <ActivityIndicator
+            color={colors.white}
+            animating={loading}
+            style={styles.spinner}
+          />
+        )}
+        <Text style={styles.buttonText}>{children}</Text>
+      </View>
     </RNButton>
   );
 };
@@ -43,5 +57,15 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 18,
     fontWeight: 'bold',
+  },
+  container: {
+    flexDirection: 'row',
+    alignContent: 'center',
+    alignItems: 'center',
+    justifyContent: 'center',
+    alignSelf: 'center',
+  },
+  spinner: {
+    marginRight: 10,
   },
 });

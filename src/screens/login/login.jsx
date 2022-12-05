@@ -8,13 +8,9 @@ import colors from '@configs/colors';
 import { useLogin } from './use-login';
 
 export const Login = () => {
-  const { onSubmit, redirectToRegister } = useLogin();
+  const { onSubmit, isLoading, redirectToRegister } = useLogin();
 
-  const {
-    control,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
+  const { control, handleSubmit } = useForm();
 
   return (
     <Screen>
@@ -42,7 +38,13 @@ export const Login = () => {
             },
           }}
         />
-        <Button onPress={handleSubmit(onSubmit)}>Login</Button>
+        <Button
+          onPress={handleSubmit(onSubmit)}
+          loading={isLoading}
+          disabled={isLoading}
+        >
+          Login
+        </Button>
 
         <View style={styles.textContainer}>
           <Text style={styles.text}>Do not have an Account?</Text>

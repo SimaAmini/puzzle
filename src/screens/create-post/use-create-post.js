@@ -27,7 +27,7 @@ export const useCreatePost = () => {
     //  show error
   }, []);
 
-  const { mutate: create, isLoading: isSaving } = useMutation({
+  const { mutate: create, isLoading } = useMutation({
     mutationFn: createPost,
     onSuccess,
     onError,
@@ -46,6 +46,7 @@ export const useCreatePost = () => {
 
   return {
     onSubmit,
+    isLoading,
     control,
     handleSubmit,
     setValue,

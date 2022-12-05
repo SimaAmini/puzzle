@@ -10,11 +10,7 @@ import { useRegister } from './useRegister';
 export const Register = () => {
   const { onSubmit, redirectToLogin } = useRegister();
 
-  const {
-    control,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
+  const { control, handleSubmit } = useForm();
 
   return (
     <Screen>

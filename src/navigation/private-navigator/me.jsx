@@ -13,7 +13,13 @@ export function Me() {
         component={Profile}
         options={{ headerShown: false }}
       />
-      <Stack.Screen name={screens.SETTINGS} component={Settings} />
+      <Stack.Screen
+        name={screens.SETTINGS}
+        component={Settings}
+        options={{
+          title: 'Settings',
+        }}
+      />
     </Stack.Navigator>
   );
 }

@@ -4,7 +4,7 @@ import {
   View,
   ActivityIndicator,
 } from 'react-native';
-import colors from '@configs/colors';
+import colors from '@core/configs/colors';
 import { Text } from './text';
 
 export const Button = (props) => {

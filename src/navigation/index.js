@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useAuth } from '@hooks/use-auth';
+import { useAuth } from '@core/hooks/use-auth';
 
 import { PrivateNavigator } from './private-navigator';
 import { PublicNavigator } from './public-navigator';

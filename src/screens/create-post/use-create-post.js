@@ -1,11 +1,14 @@
 import { useCallback } from 'react';
-import { useMutation } from '@tanstack/react-query';
-import { useNavigation } from '@react-navigation/native';
 import { useForm } from 'react-hook-form';
 
-import { createPost } from '@services/post/create-post';
+import { useNavigation } from '@react-navigation/native';
+import { useMutation } from '@tanstack/react-query';
+
+import { useToast } from '@core/hooks/use-toast';
+
 import { screens } from '@constants';
-import { useToast } from '@hooks/use-toast';
+
+import { createPost } from '@services/post/create-post';
 
 export const useCreatePost = () => {
   const navigation = useNavigation();

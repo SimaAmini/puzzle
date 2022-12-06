@@ -12,10 +12,10 @@ import { Controller } from 'react-hook-form';
 import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
 import { BottomSheetModal, useBottomSheetModal } from '@gorhom/bottom-sheet';
 
-import colors from '@configs/colors';
+import colors from '@core/configs/colors';
 import { Text } from '../text';
 import { Icon } from '../icon';
-import { BottomSheetBackground } from '@components/button-sheet-background';
+import { BottomSheetBackground } from '@core/components/button-sheet-background';
 
 export const UploadInput = (props) => {
   const {

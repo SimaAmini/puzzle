@@ -1,5 +1,5 @@
 import { Image, StyleSheet } from 'react-native';
-import colors from '@configs/colors';
+import colors from '@core/configs/colors';
 
 export const Avatar = ({ style }) => {
   return (

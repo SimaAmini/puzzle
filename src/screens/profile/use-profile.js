@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { useAuth } from '@hooks/use-auth';
+import { useAuth } from '@core/hooks/use-auth';
 import { getMyPosts } from '@services/post/get-my-posts';
 
 export const useProfile = () => {

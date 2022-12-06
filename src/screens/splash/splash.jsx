@@ -1,7 +1,7 @@
 import { Image, StyleSheet, View } from 'react-native';
 
-import Screen from '@layout/screen';
-import colors from '@configs/colors';
+import Screen from '@core/layout/screen';
+import colors from '@core/configs/colors';
 
 export const Splash = () => {
   return (

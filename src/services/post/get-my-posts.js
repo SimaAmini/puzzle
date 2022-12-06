@@ -1,4 +1,4 @@
-import { Request } from '@configs/request';
+import { Request } from '@core/configs/request';
 import { mapMyPostsToModel } from '../../mapper/map-my-posts-to-model';
 
 export async function getMyPosts() {

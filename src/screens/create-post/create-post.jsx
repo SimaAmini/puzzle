@@ -1,8 +1,9 @@
 import { StyleSheet, View } from 'react-native';
 
-import { Button, UploadInput } from '@components';
-import { TextInput } from '@components/form/text-input';
-import Screen from '@layout/screen';
+import { Button, UploadInput } from '@core/components';
+import { TextInput } from '@core/components/form/text-input';
+import Screen from '@core/layout/screen';
+
 import { useCreatePost } from './use-create-post';
 
 export const CreatePost = () => {

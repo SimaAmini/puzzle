@@ -2,9 +2,9 @@ import { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { Switch } from 'react-native-gesture-handler';
 
-import { Text } from '@components';
-import colors from '@configs/colors';
-import Screen from '@layout/screen';
+import { Text } from '@core/components';
+import colors from '@core/configs/colors';
+import Screen from '@core/layout/screen';
 
 export const Settings = () => {
   const [isEnabled, setIsEnabled] = useState(false);

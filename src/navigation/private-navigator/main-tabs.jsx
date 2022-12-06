@@ -2,8 +2,8 @@ import { StyleSheet } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import { Me } from './me';
-import colors from '@configs/colors';
-import { Icon } from '@components/icon';
+import colors from '@core/configs/colors';
+import { Icon } from '@core/components/icon';
 import { CreatePost, Feed } from '@screens';
 import { screens } from '@constants';
 

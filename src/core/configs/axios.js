@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { authStore } from '@hooks/auth-store';
+import { authStore } from '@core/hooks/auth-store';
 
 const defaults = {
   headers: () => ({

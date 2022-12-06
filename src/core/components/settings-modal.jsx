@@ -6,7 +6,7 @@ import { useNavigation } from '@react-navigation/native';
 import { Text } from './text';
 import { Icon } from './icon';
 import { screens } from '@constants';
-import { useAuth } from '@hooks/use-auth';
+import { useAuth } from '@core/hooks/use-auth';
 import { BottomSheetBackground } from './button-sheet-background';
 
 export const SettingsModal = forwardRef((props, ref) => {

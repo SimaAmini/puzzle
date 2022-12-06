@@ -1,8 +1,9 @@
-import { useInfiniteQuery } from '@tanstack/react-query';
 import { useNavigation } from '@react-navigation/native';
+import { useInfiniteQuery } from '@tanstack/react-query';
+
+import { screens } from '@constants';
 
 import { getPosts } from '@services/post/get-posts';
-import { screens } from '@constants';
 
 export const useFeed = () => {
   const navigation = useNavigation();

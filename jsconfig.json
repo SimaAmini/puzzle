@@ -1,17 +1,15 @@
 {
-    "compilerOptions": {
-      "baseUrl": ".",
-      "paths": {
-        "@navigation/*": ["./src/navigation/*"],
-        "@components/*": ["./src/components/*"],
-        "@assets/*": ["./src/assets/*"],
-        "@configs/*": ["./src/configs/*"],
-        "@screens/*": ["./src/screens/*"],
-        "@hooks/*": ["./src/hooks/*"],
-        "@layout/*": ["./src/layout/*"],
-        "@constants": ["./src/constants"],
-        "@services/*": ["./src/services/*"],
-      }
-    },
-    "exclude": ["node_modules", "dist"]
-  }
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@core/*": ["./src/core/*"],
+      "@navigation/*": ["./src/navigation/*"],
+      "@assets/*": ["./src/assets/*"],
+      "@screens/*": ["./src/screens/*"],
+      "@constants": ["./src/constants"],
+      "@services/*": ["./src/services/*"],
+      "@mappers/*": ["./src/mapper/*"]
+    }
+  },
+  "exclude": ["node_modules", "dist"]
+}

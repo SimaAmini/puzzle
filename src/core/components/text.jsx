@@ -1,5 +1,5 @@
 import { StyleSheet, Text as RNText } from 'react-native';
-import colors from '@configs/colors';
+import colors from '@core/configs/colors';
 
 export const Text = ({ children, style }) => {
   return <RNText style={[styles.text, style]}>{children}</RNText>;

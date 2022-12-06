@@ -1,4 +1,4 @@
-import colors from '@configs/colors';
+import colors from '@core/configs/colors';
 import { StyleSheet, View } from 'react-native';
 import { Text } from '.';
 

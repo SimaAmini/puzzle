@@ -15,9 +15,9 @@ import {
   Icon,
   ProfileHeader,
   ActivityIndicator,
-} from '@components';
-import Screen from '@layout/screen';
-import colors from '@configs/colors';
+} from '@core/components';
+import Screen from '@core/layout/screen';
+import colors from '@core/configs/colors';
 import { screens } from '@constants';
 import { useProfile } from './use-profile';
 

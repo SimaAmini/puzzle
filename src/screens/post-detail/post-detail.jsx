@@ -1,9 +1,14 @@
 import { Image, StyleSheet, View } from 'react-native';
 
-import { PostActions, PostHeader, Text, ActivityIndicator } from '@components';
-import Screen from '@layout/screen';
+import {
+  PostActions,
+  PostHeader,
+  Text,
+  ActivityIndicator,
+} from '@core/components';
+import Screen from '@core/layout/screen';
 import { usePostDetail } from './use-post-detail';
-import { DefaultImage } from '@components/default-image';
+import { DefaultImage } from '@core/components/default-image';
 
 export const PostDetail = () => {
   const { data } = usePostDetail();

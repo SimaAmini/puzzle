@@ -4,8 +4,8 @@ import { useNavigation } from '@react-navigation/native';
 
 import { screens } from '@constants';
 import { register } from '@services/auth/register';
-import { useAuth } from '@hooks/use-auth';
-import { useToast } from '@hooks/use-toast';
+import { useAuth } from '@core/hooks/use-auth';
+import { useToast } from '@core/hooks/use-toast';
 
 export const useRegister = () => {
   const navigation = useNavigation();

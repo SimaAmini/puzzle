@@ -1,4 +1,5 @@
 module.exports = {
+  plugins: [require.resolve('@trivago/prettier-plugin-sort-imports')],
   tabWidth: 2,
   arrowParens: 'always',
   trailingComma: 'all',
@@ -10,10 +11,12 @@ module.exports = {
   importOrder: [
     '^react',
     '^react-native',
-    '^@react-navigation',
     '^react-hook-form',
     '<THIRD_PARTY_MODULES>',
-    '^app_*',
+    '^@navigation/(.*)$',
+    '^@core/(.*)$',
+    '^@(assets|screens)/.*$|^@constants.*$',
+    '^@(?:services|mappers)/(.*)$',
     '^[./]',
   ],
   importOrderSeparation: true,

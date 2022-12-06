@@ -1,10 +1,10 @@
 import { Image, StyleSheet, View } from 'react-native';
 
-import { DefaultImage } from './default-image';
+import { DefaultImage } from '..';
+import { Text } from '../text';
+import { Truncate } from '../truncate';
 import { PostActions } from './post-actions';
 import { PostHeader } from './post-header';
-import { Text } from './text';
-import { Truncate } from './truncate';
 
 export const Post = ({ user, caption, title, createdAt, images }) => {
   return (

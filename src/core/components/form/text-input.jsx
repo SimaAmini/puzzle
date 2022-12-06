@@ -66,6 +66,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
   },
   input: {
+    padding: 10,
     borderColor: colors.gray,
     backgroundColor: colors.gray,
     minHeight: 40,

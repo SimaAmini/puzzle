@@ -3,9 +3,9 @@ import { StyleSheet, View } from 'react-native';
 import colors from '@core/configs/colors';
 import { useDate } from '@core/hooks/use-date';
 
-import { Avatar } from './avatar';
-import { Icon } from './icon';
-import { Text } from './text';
+import { Avatar } from '../avatar';
+import { Icon } from '../icon';
+import { Text } from '../text';
 
 export const PostHeader = ({ username, createdAt }) => {
   const { fromNow } = useDate();

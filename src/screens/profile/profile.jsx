@@ -9,18 +9,13 @@ import {
 
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
 
-import {
-  ActivityIndicator,
-  DefaultImage,
-  Icon,
-  ProfileHeader,
-  SettingsModal,
-} from '@core/components';
+import { ActivityIndicator, DefaultImage, Icon } from '@core/components';
 import colors from '@core/configs/colors';
 import Screen from '@core/layout/screen';
 
 import { screens } from '@constants';
 
+import { ProfileHeader, SettingsModal } from './components';
 import { useProfile } from './use-profile';
 
 export const Profile = () => {

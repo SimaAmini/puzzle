@@ -113,6 +113,11 @@ export const UploadInput = (props) => {
     ImagePickerModalRef.current?.present();
   }, []);
 
+  const handleRemoveImage = useCallback(() => {
+    setImageUri('');
+    setValue(name, '', { shouldDirty: true });
+  }, []);
+
   const handleSheetChanges = useCallback((index) => {
     console.log('handleSheetChanges', index);
   }, []);
@@ -147,13 +152,24 @@ export const UploadInput = (props) => {
                 <Text style={styles.label}>{label}</Text>
               ))}
             <View style={styles.box}>
-              <Image source={imageUri} style={styles.imagePreview} />
-              <TouchableHighlight
-                style={styles.iconContainer}
-                onPress={handlePresentModalPress}
-              >
-                <Icon name="plus" size={25} color={colors.primary} />
-              </TouchableHighlight>
+              <View>
+                <Image source={imageUri} style={styles.imagePreview} />
+              </View>
+              {imageUri ? (
+                <TouchableHighlight
+                  style={styles.iconContainer}
+                  onPress={handleRemoveImage}
+                >
+                  <Icon name="x" size={25} color={colors.primary} />
+                </TouchableHighlight>
+              ) : (
+                <TouchableHighlight
+                  style={styles.iconContainer}
+                  onPress={handlePresentModalPress}
+                >
+                  <Icon name="plus" size={25} color={colors.primary} />
+                </TouchableHighlight>
+              )}
             </View>
 
             <BottomSheetModal
@@ -219,12 +235,12 @@ const styles = StyleSheet.create({
     fontSize: 14,
   },
   imagePreview: {
-    width: 100,
-    height: 100,
+    width: 120,
+    height: 120,
     borderRadius: 10,
   },
   errorMessage: {
-    color: 'red',
+    color: colors.danger,
     alignSelf: 'stretch',
   },
 });

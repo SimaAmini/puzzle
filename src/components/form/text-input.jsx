@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
     alignSelf: 'stretch',
   },
   errorMessage: {
-    color: 'red',
+    color: colors.danger,
     alignSelf: 'stretch',
   },
 });

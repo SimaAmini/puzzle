@@ -10,7 +10,8 @@ const styles = StyleSheet.create({
   text: {
     color: colors.dark,
     fontSize: 50,
-    fontWeight: '700',
+    // fontWeight: 'bold',
     marginBottom: 30,
+    fontFamily: 'Poppins-Bold',
   },
 });

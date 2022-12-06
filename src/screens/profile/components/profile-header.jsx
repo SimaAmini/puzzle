@@ -64,12 +64,15 @@ const styles = StyleSheet.create({
     fontSize: 22,
     fontWeight: '600',
     textAlign: 'center',
+    fontFamily: 'Poppins-Bold',
   },
   jobTitle: {
     color: colors.medium,
     textAlign: 'center',
   },
-  bio: {},
+  bio: {
+    marginHorizontal: 20,
+  },
   website: {
     margin: 20,
   },

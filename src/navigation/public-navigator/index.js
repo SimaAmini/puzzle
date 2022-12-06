@@ -15,7 +15,13 @@ export function PublicNavigator() {
           headerShown: false,
         }}
       />
-      <Stack.Screen name={screens.REGISTER} component={Register} />
+      <Stack.Screen
+        name={screens.REGISTER}
+        component={Register}
+        options={{
+          title: 'Register',
+        }}
+      />
     </Stack.Navigator>
   );
 }

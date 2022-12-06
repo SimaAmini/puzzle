@@ -8,6 +8,6 @@ export const ItemSeparator = () => {
 const styles = StyleSheet.create({
   separator: {
     width: '100%',
-    height: 10,
+    height: 20,
   },
 });

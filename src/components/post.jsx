@@ -26,9 +26,7 @@ const styles = StyleSheet.create({
     paddingVertical: 20,
     height: 450,
   },
-  caption: {
-    paddingHorizontal: 10,
-  },
+
   title: {
     paddingHorizontal: 10,
     fontSize: 20,

@@ -27,7 +27,7 @@ export const Feed = () => {
           ItemSeparatorComponent={ItemSeparator}
           getItemLayout={(data, index) => ({
             length: 450,
-            offset: 10 * index,
+            offset: 20 * index,
             index,
           })}
         />

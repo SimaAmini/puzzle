@@ -111,8 +111,7 @@ const styles = StyleSheet.create({
     padding: 5,
   },
   itemContainer: {
-    flex: 1,
-    flexDirection: 'column',
+    flex: 1 / 3,
     margin: 1,
   },
 });

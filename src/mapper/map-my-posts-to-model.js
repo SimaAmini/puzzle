@@ -8,7 +8,9 @@ const createImageUrl = (url) => {
 
 const mapImages = (images) => {
   if (!images || !images.length) return null;
-  return images.map((item) => ({
+  const item = images[0];
+
+  return {
     imageId: item.id,
     name: item.name,
     alternativeText: item.alternativeText,
@@ -16,7 +18,7 @@ const mapImages = (images) => {
     small: item.formats && createImageUrl(item.formats.small?.url),
     medium: item.formats && createImageUrl(item.formats.medium?.url),
     thumbnail: item.formats && createImageUrl(item.formats.thumbnail?.url),
-  }));
+  };
 };
 
 export const mapMyPostsToModel = ({ results }) => {
@@ -28,12 +30,13 @@ export const mapMyPostsToModel = ({ results }) => {
       createdAt: item.createdAt,
       updatedAt: item.updatedAt,
       publishedAt: item.publishedAt,
-      images: {
-        large: 'https://api.lorem.space/image/fashion?w=200&h=200',
-        small: 'https://api.lorem.space/image/fashion?w=200&h=200',
-        medium: 'https://api.lorem.space/image/fashion?w=200&h=200',
-        thumbnail: 'https://api.lorem.space/image/fashion?w=200&h=200',
-      },
+      images: mapImages(item.images),
+      // images: {
+      //   large: 'https://api.lorem.space/image/fashion?w=200&h=200',
+      //   small: 'https://api.lorem.space/image/fashion?w=200&h=200',
+      //   medium: 'https://api.lorem.space/image/fashion?w=200&h=200',
+      //   thumbnail: 'https://api.lorem.space/image/fashion?w=200&h=200',
+      // },
     };
   });
 };

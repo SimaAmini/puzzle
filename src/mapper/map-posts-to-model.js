@@ -42,12 +42,13 @@ export const mapPostsToModel = ({ data, meta }) => {
       title: attributes.title,
       caption: attributes.caption,
       createdAt: attributes.createdAt,
-      images: {
-        large: 'https://api.lorem.space/image/fashion?w=400&h=400',
-        small: 'https://api.lorem.space/image/fashion?w=400&h=400',
-        medium: 'https://api.lorem.space/image/fashion?w=400&h=400',
-        thumbnail: 'https://api.lorem.space/image/fashion?w=400&h=400',
-      },
+      images: mapImages(item.attributes.images),
+      // images: {
+      //   large: 'https://api.lorem.space/image/fashion?w=400&h=400',
+      //   small: 'https://api.lorem.space/image/fashion?w=400&h=400',
+      //   medium: 'https://api.lorem.space/image/fashion?w=400&h=400',
+      //   thumbnail: 'https://api.lorem.space/image/fashion?w=400&h=400',
+      // },
       user: mapUser(attributes.user),
     };
   });

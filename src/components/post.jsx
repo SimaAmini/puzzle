@@ -4,6 +4,7 @@ import { DefaultImage } from './default-image';
 import { PostActions } from './post-actions';
 import { PostHeader } from './post-header';
 import { Text } from './text';
+import { Truncate } from './truncate';
 
 export const Post = ({ user, caption, title, createdAt, images }) => {
   return (
@@ -16,7 +17,7 @@ export const Post = ({ user, caption, title, createdAt, images }) => {
       )}
       <PostActions />
       <Text style={styles.title}>{title}</Text>
-      <Text style={styles.caption}>{caption}</Text>
+      <Truncate style={styles.caption}>{caption}</Truncate>
     </View>
   );
 };

@@ -10,6 +10,7 @@ export const Feed = () => {
     <Screen style={styles.screen}>
       {data ? (
         <FlatList
+          contentContainerStyle={{ paddingBottom: 50 }}
           data={data}
           onEndReached={loadMore}
           renderItem={({ item }) => (

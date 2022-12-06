@@ -14,10 +14,12 @@ const createImageUrl = (url) => {
 const mapImages = ({ data }) => {
   if (!data || !data.length) return null;
   const item = data[0];
+
   return {
     imageId: item.id,
     name: item.attributes.name,
     alternativeText: item.attributes.alternativeText,
+    url: createImageUrl(item.attributes.url),
     large:
       item.attributes.formats &&
       createImageUrl(item.attributes.formats.large?.url),

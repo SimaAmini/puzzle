@@ -73,7 +73,7 @@ export const Profile = () => {
                   <Image
                     style={styles.imageThumbnail}
                     source={{
-                      uri: item.images.medium,
+                      uri: item.images.url,
                     }}
                   />
                 ) : (

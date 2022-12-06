@@ -13,17 +13,14 @@ import { usePostDetail } from './use-post-detail';
 
 export const PostDetail = () => {
   const { data } = usePostDetail();
-
+  // console.log('data.images.large', data.images);
   return (
     <Screen>
       {data ? (
         <View style={styles.post}>
           <PostHeader {...data?.user} createdAt={data.createdAt} />
           {data.images ? (
-            <Image
-              style={styles.mainImage}
-              source={{ uri: data.images.large }}
-            />
+            <Image style={styles.mainImage} source={{ uri: data.images.url }} />
           ) : (
             <DefaultImage style={styles.mainImage} />
           )}

@@ -14,6 +14,7 @@ const mapImages = (images) => {
     imageId: item.id,
     name: item.name,
     alternativeText: item.alternativeText,
+    url: createImageUrl(item.url),
     large: item.formats && createImageUrl(item.formats.large?.url),
     small: item.formats && createImageUrl(item.formats.small?.url),
     medium: item.formats && createImageUrl(item.formats.medium?.url),

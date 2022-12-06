@@ -19,6 +19,7 @@ const mapImages = ({ data }) => {
     name: item.attributes.name,
     alternativeText: item.attributes.alternativeText,
     alternativeText: item.attributes.alternativeText,
+    url: createImageUrl(item.attributes.url),
     large:
       item.attributes.formats &&
       createImageUrl(item.attributes.formats.large?.url),

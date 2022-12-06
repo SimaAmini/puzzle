@@ -1,4 +1,5 @@
-import { View, StyleSheet, ActivityIndicator as Loading } from 'react-native';
+import { ActivityIndicator as Loading, StyleSheet, View } from 'react-native';
+
 import colors from '@core/configs/colors';
 
 export const ActivityIndicator = (props) => {

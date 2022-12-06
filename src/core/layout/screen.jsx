@@ -1,6 +1,8 @@
-import { BottomSheetModalProvider } from '@gorhom/bottom-sheet';
-import { SafeAreaView, StyleSheet, View, StatusBar } from 'react-native';
+import { SafeAreaView, StatusBar, StyleSheet, View } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
+
+import { BottomSheetModalProvider } from '@gorhom/bottom-sheet';
+
 import colors from '@core/configs/colors';
 
 export default Screen = ({ children, style }) => {

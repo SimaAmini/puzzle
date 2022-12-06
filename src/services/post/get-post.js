@@ -1,4 +1,5 @@
 import { Request } from '@core/configs/request';
+
 import { mapPostToModel } from '../../mapper/map-post-to-model';
 
 export async function getPost(id) {

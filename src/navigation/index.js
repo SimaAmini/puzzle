@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
+
+import { Splash } from '@screens';
+
 import { useAuth } from '@core/hooks/use-auth';
 
 import { PrivateNavigator } from './private-navigator';
 import { PublicNavigator } from './public-navigator';
-import { Splash } from '@screens';
 
 export const RootNavigator = () => {
   const [loading, setLoading] = useState(true);

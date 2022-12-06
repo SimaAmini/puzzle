@@ -1,4 +1,5 @@
 import { Request } from '@core/configs/request';
+
 import { mapLoginToDTO } from '../../mapper/map-login-to-dto';
 
 export async function login(model) {

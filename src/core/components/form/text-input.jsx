@@ -1,7 +1,8 @@
-import { View, TextInput as RNTextInput, StyleSheet } from 'react-native';
 import { Controller } from 'react-hook-form';
+import { TextInput as RNTextInput, StyleSheet, View } from 'react-native';
 
 import colors from '@core/configs/colors';
+
 import { Text } from '../text';
 
 export const TextInput = (props) => {

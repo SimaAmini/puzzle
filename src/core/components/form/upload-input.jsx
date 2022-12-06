@@ -1,21 +1,23 @@
 import React, { useCallback, useMemo, useRef, useState } from 'react';
-import { useFocusEffect } from '@react-navigation/native';
+import { Controller } from 'react-hook-form';
 import {
-  View,
-  TouchableOpacity,
   Image,
   PermissionsAndroid,
   StyleSheet,
   TouchableHighlight,
+  TouchableOpacity,
+  View,
 } from 'react-native';
-import { Controller } from 'react-hook-form';
 import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
-import { BottomSheetModal, useBottomSheetModal } from '@gorhom/bottom-sheet';
 
-import colors from '@core/configs/colors';
-import { Text } from '../text';
-import { Icon } from '../icon';
+import { BottomSheetModal, useBottomSheetModal } from '@gorhom/bottom-sheet';
+import { useFocusEffect } from '@react-navigation/native';
+
 import { BottomSheetBackground } from '@core/components/button-sheet-background';
+import colors from '@core/configs/colors';
+
+import { Icon } from '../icon';
+import { Text } from '../text';
 
 export const UploadInput = (props) => {
   const {

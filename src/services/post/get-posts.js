@@ -1,4 +1,5 @@
 import { Request } from '@core/configs/request';
+
 import { mapPostsToModel } from '../../mapper/map-posts-to-model';
 
 export async function getPosts(pageParam) {

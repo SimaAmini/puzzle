@@ -1,6 +1,8 @@
 import { FlatList, StyleSheet, TouchableHighlight } from 'react-native';
-import { Post, ItemSeparator, ActivityIndicator } from '@core/components';
+
+import { ActivityIndicator, ItemSeparator, Post } from '@core/components';
 import Screen from '@core/layout/screen';
+
 import { useFeed } from './use-feed';
 
 export const Feed = () => {

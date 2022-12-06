@@ -1,10 +1,13 @@
 import { useEffect } from 'react';
-import { useQuery } from '@tanstack/react-query';
+
 import { useNavigation, useRoute } from '@react-navigation/native';
+import { useQuery } from '@tanstack/react-query';
+
+import { Button, Icon } from '@core/components';
+
+import { screens } from '@constants';
 
 import { getPost } from '@services/post/get-post';
-import { Button, Icon } from '@core/components';
-import { screens } from '@constants';
 
 export const usePostDetail = () => {
   const { params } = useRoute();

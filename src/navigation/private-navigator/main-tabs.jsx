@@ -1,11 +1,14 @@
 import { StyleSheet } from 'react-native';
+
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { CreatePost, Feed } from '@screens';
+
+import { Icon } from '@core/components/icon';
+import colors from '@core/configs/colors';
+
+import { screens } from '@constants';
 
 import { Me } from './me';
-import colors from '@core/configs/colors';
-import { Icon } from '@core/components/icon';
-import { CreatePost, Feed } from '@screens';
-import { screens } from '@constants';
 
 const Tab = createBottomTabNavigator();
 

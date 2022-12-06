@@ -1,8 +1,10 @@
 import { StyleSheet, View } from 'react-native';
+
 import colors from '@core/configs/colors';
+
 import { Avatar } from './avatar';
-import { Text } from './text';
 import { Link } from './link';
+import { Text } from './text';
 
 export const ProfileHeader = ({ username, email }) => {
   return (

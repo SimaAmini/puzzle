@@ -1,11 +1,14 @@
 import { useCallback } from 'react';
-import { useMutation } from '@tanstack/react-query';
-import { useNavigation } from '@react-navigation/native';
 
-import { login } from '@services/auth/login';
-import { screens } from '@constants';
+import { useNavigation } from '@react-navigation/native';
+import { useMutation } from '@tanstack/react-query';
+
 import { useAuth } from '@core/hooks/use-auth';
 import { useToast } from '@core/hooks/use-toast';
+
+import { screens } from '@constants';
+
+import { login } from '@services/auth/login';
 
 export const useLogin = () => {
   const navigation = useNavigation();

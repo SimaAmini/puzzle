@@ -1,5 +1,6 @@
-import colors from '@core/configs/colors';
 import { StyleSheet, View } from 'react-native';
+
+import colors from '@core/configs/colors';
 
 export const BottomSheetBackground = ({ style }) => {
   return <View style={[styles.container, style]} />;

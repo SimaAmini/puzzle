@@ -1,13 +1,16 @@
 import { forwardRef, useMemo } from 'react';
-import { View, TouchableOpacity, StyleSheet } from 'react-native';
+import { StyleSheet, TouchableOpacity, View } from 'react-native';
+
 import { BottomSheetModal, useBottomSheetModal } from '@gorhom/bottom-sheet';
 import { useNavigation } from '@react-navigation/native';
 
-import { Text } from './text';
-import { Icon } from './icon';
-import { screens } from '@constants';
 import { useAuth } from '@core/hooks/use-auth';
+
+import { screens } from '@constants';
+
 import { BottomSheetBackground } from './button-sheet-background';
+import { Icon } from './icon';
+import { Text } from './text';
 
 export const SettingsModal = forwardRef((props, ref) => {
   const snapPoints = useMemo(() => ['10%', '20%'], []);

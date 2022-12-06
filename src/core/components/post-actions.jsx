@@ -1,7 +1,9 @@
 import { StyleSheet, View } from 'react-native';
-import { Text } from './text';
+
 import colors from '@core/configs/colors';
+
 import { Icon } from './icon';
+import { Text } from './text';
 
 export const PostActions = () => {
   return (

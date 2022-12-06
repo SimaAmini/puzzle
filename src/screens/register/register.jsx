@@ -1,10 +1,11 @@
-import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import { useForm } from 'react-hook-form';
+import { StyleSheet, TouchableOpacity, View } from 'react-native';
 
-import { Button, TitleText, Text } from '@core/components';
+import { Button, Text, TitleText } from '@core/components';
 import { TextInput } from '@core/components/form/text-input';
-import Screen from '@core/layout/screen';
 import colors from '@core/configs/colors';
+import Screen from '@core/layout/screen';
+
 import { useRegister } from './useRegister';
 
 export const Register = () => {

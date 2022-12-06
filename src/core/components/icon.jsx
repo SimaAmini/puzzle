@@ -1,5 +1,6 @@
 import { StyleSheet } from 'react-native';
 import MainIcon from 'react-native-vector-icons/Feather';
+
 import colors from '@core/configs/colors';
 
 export const Icon = (props) => {

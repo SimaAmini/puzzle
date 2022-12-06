@@ -1,5 +1,7 @@
-import colors from '@core/configs/colors';
 import { StyleSheet, View } from 'react-native';
+
+import colors from '@core/configs/colors';
+
 import { Text } from '.';
 
 export const DefaultImage = ({ style }) => {

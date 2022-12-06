@@ -1,4 +1,5 @@
-import { StyleSheet, Text as RNText } from 'react-native';
+import { Text as RNText, StyleSheet } from 'react-native';
+
 import colors from '@core/configs/colors';
 
 export const Text = ({ children, style }) => {

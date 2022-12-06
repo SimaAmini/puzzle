@@ -1,7 +1,7 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { produce } from 'immer';
 import create from 'zustand';
 import { persist } from 'zustand/middleware';
-import { produce } from 'immer';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { AUTH_STORAGE } from '@constants';
 

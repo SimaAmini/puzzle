@@ -1,7 +1,7 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { Profile, Settings } from '@screens';
 
 import { screens } from '@constants';
-import { Profile, Settings } from '@screens';
 
 const Stack = createNativeStackNavigator();
 

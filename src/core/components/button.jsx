@@ -1,10 +1,12 @@
 import {
+  ActivityIndicator,
   TouchableOpacity as RNButton,
   StyleSheet,
   View,
-  ActivityIndicator,
 } from 'react-native';
+
 import colors from '@core/configs/colors';
+
 import { Text } from './text';
 
 export const Button = (props) => {

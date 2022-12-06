@@ -1,7 +1,8 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import { PostDetail } from '@screens/post-detail';
 import { screens } from '@constants';
+import { PostDetail } from '@screens/post-detail';
+
 import { MainTabs } from './main-tabs';
 
 const Stack = createNativeStackNavigator();

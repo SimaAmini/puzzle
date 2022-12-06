@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
   scrollView: {
     flex: 1,
     marginHorizontal: 20,
-    // justifyContent: 'center',
+    justifyContent: 'center',
     flexGrow: 1,
   },
 });

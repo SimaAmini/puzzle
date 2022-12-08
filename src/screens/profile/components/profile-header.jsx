@@ -1,9 +1,12 @@
 import { StyleSheet, View } from 'react-native';
 
 import { Avatar, Link, Text } from '@core/components';
-import colors from '@core/configs/colors';
+import { useTheme } from '@core/hooks/use-theme';
 
 export const ProfileHeader = ({ username, email }) => {
+  const { colors } = useTheme();
+  const styles = makeStyles(colors);
+
   return (
     <View style={styles.container}>
       <View style={styles.user}>
@@ -46,61 +49,62 @@ export const ProfileHeader = ({ username, email }) => {
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
-  user: {
-    alignContent: 'center',
-    alignItems: 'center',
-    marginBottom: 5,
-  },
-  texts: {
-    marginLeft: 5,
-    textAlign: 'center',
-  },
-  userName: {
-    fontSize: 22,
-    fontWeight: '600',
-    textAlign: 'center',
-    fontFamily: 'Poppins-Bold',
-  },
-  jobTitle: {
-    color: colors.medium,
-    textAlign: 'center',
-  },
-  bio: {
-    marginHorizontal: 20,
-  },
-  website: {
-    margin: 20,
-  },
-  wrapper: {
-    flexDirection: 'row',
-    justifyContent: 'space-evenly',
-    alignItems: 'center',
-  },
-  box: {
-    padding: 20,
-  },
-  number: {
-    textAlign: 'center',
-    fontSize: 20,
-    fontWeight: '500',
-    color: colors.dark,
-  },
-  label: {
-    textAlign: 'center',
-    color: colors.medium,
-  },
-  verticalLine: {
-    height: '60%',
-    width: 0.5,
-    backgroundColor: colors.medium,
-  },
-  avatar: {
-    width: 100,
-    height: 100,
-  },
-});
+const makeStyles = (colors) =>
+  StyleSheet.create({
+    container: {
+      justifyContent: 'space-between',
+      alignItems: 'center',
+    },
+    user: {
+      alignContent: 'center',
+      alignItems: 'center',
+      marginBottom: 5,
+    },
+    texts: {
+      marginLeft: 5,
+      textAlign: 'center',
+    },
+    userName: {
+      fontSize: 22,
+      fontWeight: '600',
+      textAlign: 'center',
+      fontFamily: 'Poppins-Bold',
+    },
+    jobTitle: {
+      color: colors.medium,
+      textAlign: 'center',
+    },
+    bio: {
+      marginHorizontal: 20,
+    },
+    website: {
+      margin: 20,
+    },
+    wrapper: {
+      flexDirection: 'row',
+      justifyContent: 'space-evenly',
+      alignItems: 'center',
+    },
+    box: {
+      padding: 20,
+    },
+    number: {
+      textAlign: 'center',
+      fontSize: 20,
+      fontWeight: '500',
+      color: colors.dark,
+    },
+    label: {
+      textAlign: 'center',
+      color: colors.medium,
+    },
+    verticalLine: {
+      height: '60%',
+      width: 0.5,
+      backgroundColor: colors.medium,
+    },
+    avatar: {
+      width: 100,
+      height: 100,
+    },
+  });

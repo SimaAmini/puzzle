@@ -1,8 +1,11 @@
 import { Text as RNText, StyleSheet } from 'react-native';
 
-import colors from '@core/configs/colors';
+import { useTheme } from '@core/hooks/use-theme';
 
 export const Text = ({ children, style, ...rest }) => {
+  const { colors } = useTheme();
+  const styles = makeStyles(colors);
+
   return (
     <RNText style={[styles.text, style]} {...rest}>
       {children}
@@ -10,9 +13,10 @@ export const Text = ({ children, style, ...rest }) => {
   );
 };
 
-const styles = StyleSheet.create({
-  text: {
-    color: colors.dark,
-    fontFamily: 'Poppins',
-  },
-});
+const makeStyles = (colors) =>
+  StyleSheet.create({
+    text: {
+      color: colors.dark,
+      fontFamily: 'Poppins',
+    },
+  });

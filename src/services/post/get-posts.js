@@ -1,6 +1,6 @@
 import { Request } from '@core/configs/request';
 
-import { mapPostsToModel } from '../../mapper/map-posts-to-model';
+import { mapPostsToModel } from '../../mappers/map-posts-to-model';
 
 export async function getPosts(pageParam) {
   return await Request.get(

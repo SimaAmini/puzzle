@@ -9,7 +9,7 @@ export const useProfile = () => {
 
   const { username, email } = getUser();
 
-  const { data, isLoading } = useQuery({
+  const { data, isLoading, refetch } = useQuery({
     queryFn: getMyPosts,
     queryKey: ['my-posts'],
   });
@@ -18,5 +18,7 @@ export const useProfile = () => {
     username,
     email,
     data: !isLoading && data,
+    refetch,
+    isLoading,
   };
 };

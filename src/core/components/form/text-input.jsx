@@ -1,11 +1,14 @@
 import { Controller } from 'react-hook-form';
 import { TextInput as RNTextInput, StyleSheet, View } from 'react-native';
 
-import colors from '@core/configs/colors';
+import { useTheme } from '@core/hooks/use-theme';
 
 import { Text } from '../text';
 
 export const TextInput = (props) => {
+  const { colors } = useTheme();
+  const styles = makeStyles(colors);
+
   const {
     name,
     label,
@@ -56,28 +59,30 @@ export const TextInput = (props) => {
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    marginBottom: 10,
-  },
-  label: {
-    color: colors.black,
-    marginBottom: 5,
-    fontSize: 14,
-  },
-  input: {
-    padding: 10,
-    borderColor: colors.gray,
-    backgroundColor: colors.gray,
-    minHeight: 40,
-    borderWidth: 1,
-    borderRadius: 10,
-    // marginBottom: 5,
-    paddingHorizontal: 10,
-    alignSelf: 'stretch',
-  },
-  errorMessage: {
-    color: colors.danger,
-    alignSelf: 'stretch',
-  },
-});
+const makeStyles = (colors) =>
+  StyleSheet.create({
+    container: {
+      marginBottom: 10,
+    },
+    label: {
+      color: colors.black,
+      marginBottom: 5,
+      fontSize: 14,
+    },
+    input: {
+      // padding: 10,
+      borderColor: colors.gray,
+      backgroundColor: colors.gray,
+      minHeight: 40,
+      borderWidth: 1,
+      borderRadius: 10,
+      // marginBottom: 5,
+      paddingHorizontal: 10,
+      // alignSelf: 'stretch',
+      color: 'black',
+    },
+    errorMessage: {
+      color: colors.danger,
+      alignSelf: 'stretch',
+    },
+  });

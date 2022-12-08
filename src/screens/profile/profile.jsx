@@ -10,7 +10,7 @@ import {
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
 
 import { ActivityIndicator, DefaultImage, Icon } from '@core/components';
-import colors from '@core/configs/colors';
+import { useTheme } from '@core/hooks/use-theme';
 import Screen from '@core/layout/screen';
 
 import { screens } from '@constants';
@@ -19,9 +19,11 @@ import { ProfileHeader, SettingsModal } from './components';
 import { useProfile } from './use-profile';
 
 export const Profile = () => {
-  const { data, username, email } = useProfile();
+  const { data, username, email, refetch, isLoading } = useProfile();
 
   const navigation = useNavigation();
+  const { colors } = useTheme();
+  const styles = makeStyles(colors);
 
   const redirectToPostDetail = (id) => {
     return navigation.navigate(screens.POST_DETAIL, {
@@ -61,6 +63,8 @@ export const Profile = () => {
       {data ? (
         <FlatList
           data={data}
+          onRefresh={refetch}
+          refreshing={isLoading}
           renderItem={({ item }) => (
             <View style={styles.itemContainer}>
               <TouchableHighlight
@@ -92,26 +96,27 @@ export const Profile = () => {
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    backgroundColor: 'white',
-  },
-  imageThumbnail: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: 100,
-    borderColor: colors.gray,
-    borderWidth: 1,
-  },
-  iconContainer: {
-    alignItems: 'flex-end',
-    marginRight: 20,
-    padding: 5,
-  },
-  itemContainer: {
-    flex: 1 / 3,
-    margin: 1,
-  },
-});
+const makeStyles = (colors) =>
+  StyleSheet.create({
+    container: {
+      flex: 1,
+      justifyContent: 'center',
+      backgroundColor: 'white',
+    },
+    imageThumbnail: {
+      justifyContent: 'center',
+      alignItems: 'center',
+      height: 100,
+      borderColor: colors.gray,
+      borderWidth: 1,
+    },
+    iconContainer: {
+      alignItems: 'flex-end',
+      marginRight: 20,
+      padding: 5,
+    },
+    itemContainer: {
+      flex: 1 / 3,
+      margin: 1,
+    },
+  });

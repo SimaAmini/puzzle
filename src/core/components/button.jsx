@@ -5,11 +5,14 @@ import {
   View,
 } from 'react-native';
 
-import colors from '@core/configs/colors';
+import { useTheme } from '@core/hooks/use-theme';
 
 import { Text } from './text';
 
 export const Button = (props) => {
+  const { colors } = useTheme();
+  const styles = makeStyles(colors);
+
   const { children, disabled, title, icon, style, onPress, loading } = props;
   // TODO:
   if (icon) {
@@ -46,28 +49,29 @@ export const Button = (props) => {
   );
 };
 
-const styles = StyleSheet.create({
-  button: {
-    backgroundColor: colors.primary,
-    paddingVertical: 10,
-    borderWidth: 2,
-    borderRadius: 10,
-    borderColor: colors.primary,
-  },
-  buttonText: {
-    color: colors.light,
-    textAlign: 'center',
-    fontSize: 18,
-    fontWeight: 'bold',
-  },
-  container: {
-    flexDirection: 'row',
-    alignContent: 'center',
-    alignItems: 'center',
-    justifyContent: 'center',
-    alignSelf: 'center',
-  },
-  spinner: {
-    marginRight: 10,
-  },
-});
+const makeStyles = (colors) =>
+  StyleSheet.create({
+    button: {
+      backgroundColor: colors.primary,
+      paddingVertical: 10,
+      borderWidth: 2,
+      borderRadius: 10,
+      borderColor: colors.primary,
+    },
+    buttonText: {
+      color: colors.light,
+      textAlign: 'center',
+      fontSize: 18,
+      fontWeight: 'bold',
+    },
+    container: {
+      flexDirection: 'row',
+      alignContent: 'center',
+      alignItems: 'center',
+      justifyContent: 'center',
+      alignSelf: 'center',
+    },
+    spinner: {
+      marginRight: 10,
+    },
+  });

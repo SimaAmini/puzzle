@@ -3,12 +3,19 @@ import { StyleSheet, View } from 'react-native';
 import { Switch } from 'react-native-gesture-handler';
 
 import { Text } from '@core/components';
-import colors from '@core/configs/colors';
+import { useTheme } from '@core/hooks/use-theme';
 import Screen from '@core/layout/screen';
 
 export const Settings = () => {
-  const [isEnabled, setIsEnabled] = useState(false);
-  const toggleSwitch = () => setIsEnabled((previousState) => !previousState);
+  const { setTheme, getTheme, getColors } = useTheme();
+  const [isEnabled, setIsEnabled] = useState(getTheme());
+
+  const colors = getColors();
+
+  const toggleSwitch = (isDark) => {
+    setTheme(isDark);
+    setIsEnabled((previousState) => !previousState);
+  };
 
   return (
     <Screen>

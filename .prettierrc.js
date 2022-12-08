@@ -16,7 +16,7 @@ module.exports = {
     '^@navigation/(.*)$',
     '^@core/(.*)$',
     '^@(assets|screens)/.*$|^@constants.*$',
-    '^@(?:services|mappers)/(.*)$',
+    '^@(?:services|mapper)/(.*)$',
     '^[./]',
   ],
   importOrderSeparation: true,

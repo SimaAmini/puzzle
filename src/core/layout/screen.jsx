@@ -3,9 +3,12 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 import { BottomSheetModalProvider } from '@gorhom/bottom-sheet';
 
-import colors from '@core/configs/colors';
+import { useTheme } from '@core/hooks/use-theme';
 
 export default Screen = ({ children, style }) => {
+  const { colors } = useTheme();
+  const styles = makeStyles(colors);
+
   return (
     <SafeAreaView style={[styles.screen, style]}>
       <GestureHandlerRootView style={styles.gestureContainer}>
@@ -17,16 +20,17 @@ export default Screen = ({ children, style }) => {
   );
 };
 
-const styles = StyleSheet.create({
-  screen: {
-    paddingTop: StatusBar.currentHeight,
-    flex: 1,
-    backgroundColor: colors.white,
-  },
-  view: {
-    flex: 1,
-  },
-  gestureContainer: {
-    flex: 1,
-  },
-});
+const makeStyles = (colors) =>
+  StyleSheet.create({
+    screen: {
+      paddingTop: StatusBar.currentHeight,
+      flex: 1,
+      backgroundColor: colors.white,
+    },
+    view: {
+      flex: 1,
+    },
+    gestureContainer: {
+      flex: 1,
+    },
+  });

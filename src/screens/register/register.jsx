@@ -3,12 +3,14 @@ import { StyleSheet, TouchableOpacity, View } from 'react-native';
 
 import { Button, Text, TitleText } from '@core/components';
 import { TextInput } from '@core/components/form/text-input';
-import colors from '@core/configs/colors';
+import { useTheme } from '@core/hooks/use-theme';
 import Screen from '@core/layout/screen';
 
 import { useRegister } from './useRegister';
 
 export const Register = () => {
+  const { colors } = useTheme();
+  const styles = makeStyles(colors);
   const { onSubmit, isLoading, redirectToLogin } = useRegister();
 
   const { control, handleSubmit } = useForm();
@@ -86,25 +88,26 @@ export const Register = () => {
   );
 };
 
-const styles = StyleSheet.create({
-  scrollView: {
-    flex: 1,
-    marginHorizontal: 20,
-    justifyContent: 'center',
-    flexGrow: 1,
-  },
-  textContainer: {
-    flexDirection: 'row',
-    alignContent: 'flex-start',
-    marginTop: 10,
-  },
-  text: {
-    fontSize: 16,
-  },
-  link: {
-    color: colors.primary,
-    textDecorationLine: 'underline',
-    marginLeft: 5,
-    fontWeight: 'bold',
-  },
-});
+const makeStyles = (colors) =>
+  StyleSheet.create({
+    scrollView: {
+      flex: 1,
+      marginHorizontal: 20,
+      justifyContent: 'center',
+      flexGrow: 1,
+    },
+    textContainer: {
+      flexDirection: 'row',
+      alignContent: 'flex-start',
+      marginTop: 10,
+    },
+    text: {
+      fontSize: 16,
+    },
+    link: {
+      color: colors.primary,
+      textDecorationLine: 'underline',
+      marginLeft: 5,
+      fontWeight: 'bold',
+    },
+  });

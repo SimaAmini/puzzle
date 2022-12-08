@@ -1,11 +1,13 @@
 import { StyleSheet, View } from 'react-native';
 
-import colors from '@core/configs/colors';
+import { useTheme } from '@core/hooks/use-theme';
 
 import { Icon } from '../icon';
 import { Text } from '../text';
 
 export const PostActions = () => {
+  const { colors } = useTheme();
+
   return (
     <View style={styles.actions}>
       <View style={styles.leftIcons}>

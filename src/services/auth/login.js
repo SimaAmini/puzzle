@@ -1,6 +1,6 @@
 import { Request } from '@core/configs/request';
 
-import { mapLoginToDTO } from '../../mapper/map-login-to-dto';
+import { mapLoginToDTO } from '../../mappers/map-login-to-dto';
 
 export async function login(model) {
   const mapped = mapLoginToDTO(model);

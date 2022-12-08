@@ -20,8 +20,10 @@ export const RootNavigator = () => {
     const authDataSerialized = await getToken();
 
     if (authDataSerialized || authDataSerialized !== 'fake') {
-      setLoading(false);
-      setToken(authDataSerialized);
+      setTimeout(() => {
+        setToken(authDataSerialized);
+        setLoading(false);
+      }, 1500);
     }
   }
 

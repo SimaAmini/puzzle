@@ -1,8 +1,11 @@
 import { ActivityIndicator as Loading, StyleSheet, View } from 'react-native';
 
-import colors from '@core/configs/colors';
+import { useTheme } from '@core/hooks/use-theme';
 
 export const ActivityIndicator = (props) => {
+  const { getColors } = useTheme();
+  const colors = getColors();
+
   return (
     <View style={styles.overlay}>
       {/*  TODO: could be replaced with a logo */}

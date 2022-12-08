@@ -1,11 +1,14 @@
 import { useCallback } from 'react';
 import { Alert, Linking, StyleSheet, TouchableOpacity } from 'react-native';
 
-import colors from '@core/configs/colors';
+import { useTheme } from '@core/hooks/use-theme';
 
 import { Text } from './text';
 
 export const Link = ({ url, children }) => {
+  const { colors } = useTheme();
+  const styles = makeStyles(colors);
+
   const handlePress = useCallback(async () => {
     // Checking if the link is supported for links with custom URL scheme.
     const supported = await Linking.canOpenURL(url);
@@ -25,8 +28,10 @@ export const Link = ({ url, children }) => {
     </TouchableOpacity>
   );
 };
-const styles = StyleSheet.create({
-  link: {
-    color: colors.primary,
-  },
-});
+
+const makeStyles = (colors) =>
+  StyleSheet.create({
+    link: {
+      color: colors.primary,
+    },
+  });

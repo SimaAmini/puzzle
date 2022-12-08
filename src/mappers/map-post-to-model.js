@@ -43,7 +43,6 @@ export const mapPostToModel = ({ data }) => ({
   publishedAt: data.attributes.publishedAt,
   createdAt: data.attributes.createdAt,
   updatedAt: data.attributes.updatedAt,
-  // TODO:
   images: mapImages(data.attributes.images),
   // images: {
   //   large: 'https://api.lorem.space/image/fashion?w=400&h=400',

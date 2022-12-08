@@ -4,7 +4,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { CreatePost, Feed } from '@screens';
 
 import { Icon } from '@core/components/icon';
-import colors from '@core/configs/colors';
+import { useTheme } from '@core/hooks/use-theme';
 
 import { screens } from '@constants';
 
@@ -13,17 +13,20 @@ import { Me } from './me';
 const Tab = createBottomTabNavigator();
 
 export function MainTabs() {
+  const { colors } = useTheme();
+  const styles = makeStyles(colors);
+
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({
         headerShown: false,
         headerStyle: {
-          backgroundColor: colors.primary,
+          // backgroundColor: colors.primary,
         },
         headerTintColor: colors.white,
         headerTitleStyle: {
           fontWeight: 'bold',
-          fontFamily: 'Rubik',
+          fontFamily: 'Poppins',
         },
         tabBarShowLabel: false,
         tabBarIcon: ({ focused, color, size }) => {
@@ -45,6 +48,7 @@ export function MainTabs() {
 
         tabBarStyle: {
           ...styles.shadow,
+          backgroundColor: colors.light,
         },
       })}
     >
@@ -61,15 +65,16 @@ export function MainTabs() {
   );
 }
 
-const styles = StyleSheet.create({
-  shadow: {
-    shadowColor: 'black',
-    shadowOffset: {
-      width: 0,
-      height: 10,
+const makeStyles = (colors) =>
+  StyleSheet.create({
+    shadow: {
+      shadowColor: colors.black,
+      shadowOffset: {
+        width: 0,
+        height: 10,
+      },
+      shadowOpacity: 0.25,
+      shadowRadius: 3.5,
+      elevation: 5,
     },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.5,
-    elevation: 5,
-  },
-});
+  });

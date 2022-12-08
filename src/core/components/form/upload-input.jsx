@@ -14,12 +14,14 @@ import { BottomSheetModal, useBottomSheetModal } from '@gorhom/bottom-sheet';
 import { useFocusEffect } from '@react-navigation/native';
 
 import { BottomSheetBackground } from '@core/components/button-sheet-background';
-import colors from '@core/configs/colors';
+import { useTheme } from '@core/hooks/use-theme';
 
 import { Icon } from '../icon';
 import { Text } from '../text';
 
 export const UploadInput = (props) => {
+  const { colors } = useTheme();
+  const styles = makeStyles(colors);
   const {
     name,
     label,
@@ -146,7 +148,7 @@ export const UploadInput = (props) => {
         fieldState: { error },
       }) => (
         <>
-          <View>
+          <View style={styles.container}>
             {label &&
               (required ? (
                 <Text style={styles.label}>{label} *</Text>
@@ -205,44 +207,48 @@ export const UploadInput = (props) => {
   );
 };
 
-const styles = StyleSheet.create({
-  contentContainer: {
-    flex: 1,
-    alignItems: 'flex-start',
-    justifyContent: 'space-around',
-    paddingHorizontal: 10,
-  },
-  box: {
-    backgroundColor: '#F2F2F2',
-    height: 140,
-    borderRadius: 10,
-    padding: 10,
-    justifyContent: 'space-between',
-    flexDirection: 'row',
-  },
-  iconContainer: {
-    backgroundColor: '#e6e5e5',
-    width: 30,
-    height: 30,
-    borderWidth: 2,
-    borderRadius: 10,
-    borderColor: colors.primary,
-    alignItems: 'center',
-    justifyContent: 'center',
-    alignSelf: 'flex-end',
-  },
-  label: {
-    color: colors.black,
-    marginBottom: 5,
-    fontSize: 14,
-  },
-  imagePreview: {
-    width: 120,
-    height: 120,
-    borderRadius: 10,
-  },
-  errorMessage: {
-    color: colors.danger,
-    alignSelf: 'stretch',
-  },
-});
+const makeStyles = (colors) =>
+  StyleSheet.create({
+    container: {
+      marginBottom: 10,
+    },
+    contentContainer: {
+      flex: 1,
+      alignItems: 'flex-start',
+      justifyContent: 'space-around',
+      paddingHorizontal: 10,
+    },
+    box: {
+      backgroundColor: colors.gray,
+      height: 140,
+      borderRadius: 10,
+      padding: 10,
+      justifyContent: 'space-between',
+      flexDirection: 'row',
+    },
+    iconContainer: {
+      backgroundColor: colors.gray,
+      width: 30,
+      height: 30,
+      borderWidth: 2,
+      borderRadius: 10,
+      borderColor: colors.primary,
+      alignItems: 'center',
+      justifyContent: 'center',
+      alignSelf: 'flex-end',
+    },
+    label: {
+      color: colors.black,
+      marginBottom: 5,
+      fontSize: 14,
+    },
+    imagePreview: {
+      width: 120,
+      height: 120,
+      borderRadius: 10,
+    },
+    errorMessage: {
+      color: colors.danger,
+      alignSelf: 'stretch',
+    },
+  });

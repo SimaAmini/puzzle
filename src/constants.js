@@ -12,5 +12,6 @@ export const screens = {
 };
 
 export const AUTH_STORAGE = 'auth-storage';
+export const THEME = 'theme';
 
 export const BASE_URL = 'http://192.168.1.100:1337';

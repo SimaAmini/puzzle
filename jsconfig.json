@@ -7,8 +7,7 @@
       "@assets/*": ["./src/assets/*"],
       "@screens/*": ["./src/screens/*"],
       "@constants": ["./src/constants"],
-      "@services/*": ["./src/services/*"],
-      "@mappers/*": ["./src/mapper/*"]
+      "@services/*": ["./src/services/*"]
     }
   },
   "exclude": ["node_modules", "dist"]

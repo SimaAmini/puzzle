@@ -1,9 +1,12 @@
 import { Image, StyleSheet, View } from 'react-native';
 
-import colors from '@core/configs/colors';
+import { useTheme } from '@core/hooks/use-theme';
 import Screen from '@core/layout/screen';
 
 export const Splash = () => {
+  const { colors } = useTheme();
+  const styles = makeStyles(colors);
+
   return (
     <Screen>
       <View style={styles.scrollView}>
@@ -15,12 +18,13 @@ export const Splash = () => {
   );
 };
 
-const styles = StyleSheet.create({
-  scrollView: {
-    flex: 1,
-    justifyContent: 'center',
-    // flexGrow: 1,
-    alignItems: 'center',
-    backgroundColor: colors.light,
-  },
-});
+const makeStyles = (colors) =>
+  StyleSheet.create({
+    scrollView: {
+      flex: 1,
+      justifyContent: 'center',
+      // flexGrow: 1,
+      alignItems: 'center',
+      backgroundColor: colors.light,
+    },
+  });

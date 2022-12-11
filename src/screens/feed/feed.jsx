@@ -6,7 +6,7 @@ import Screen from '@core/layout/screen';
 import { useFeed } from './use-feed';
 
 export const Feed = () => {
-  const { data, redirectToPostDetail, loadMore, refetch, isLoading } =
+  const { data, redirectToPostDetail, loadMore, refetch, isRefetching } =
     useFeed();
 
   return (
@@ -15,7 +15,7 @@ export const Feed = () => {
         <FlatList
           contentContainerStyle={{ paddingBottom: 50 }}
           onRefresh={refetch}
-          refreshing={isLoading}
+          refreshing={isRefetching}
           data={data}
           onEndReached={loadMore}
           renderItem={({ item }) => (

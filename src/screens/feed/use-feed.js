@@ -12,7 +12,7 @@ export const useFeed = () => {
     return navigation.navigate(screens.POST_DETAIL, { postId: id });
   };
 
-  const { isLoading, data, hasNextPage, fetchNextPage, refetch } =
+  const { isLoading, data, hasNextPage, fetchNextPage, refetch, isRefetching } =
     useInfiniteQuery({
       queryKey: ['posts'],
       queryFn: ({ pageParam = 1 }) => getPosts(pageParam),
@@ -36,7 +36,7 @@ export const useFeed = () => {
       data &&
       data.pages &&
       data.pages.map(({ data }) => data).flat(),
-    isLoading,
+    isRefetching,
     redirectToPostDetail,
     loadMore,
     refetch,

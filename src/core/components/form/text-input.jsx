@@ -17,7 +17,7 @@ export const TextInput = (props) => {
     disabled,
     required,
     multiline,
-    numberOfLines = multiline ? 4 : 0,
+    numberOfLines = multiline ? 4 : 1,
     control,
     rules = {},
   } = props;
